@@ -2,6 +2,7 @@ package com.ocr.charles.Game;
 
 import com.ocr.charles.Exceptions.PlayerInputError;
 import com.ocr.charles.GameMode.ChallengerMode;
+import com.sun.source.tree.WhileLoopTree;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,15 +19,16 @@ public abstract class Game {
         Ai;
     }
 
-    private int[][] solutionReturn; /* int[2][x digit] / index 0 player solution  / index 1 AI solution  */
-    private int[][] answerReturn; /* int[2][x digit] / index 0 player answer  / index 1 AI answer  */
+    protected int[][] solutionReturn; /* int[2][x digit] / index 0 player solution  / index 1 AI solution  */
+    protected int[][] answerReturn; /* int[2][x digit] / index 0 player answer  / index 1 AI answer  */
     protected int[][] rangeAiAnswer;
     private String[] result = new String[2]; /* Index 0 => player result/Index 1 Ai result */
-    private Player currentPlayer = Player.Human;
+    protected Player currentPlayer = Player.Human;
     int combinationDigitNumber;
     int attemptSetting;
     int allowedAttempts;
     int attemptNumber;
+    boolean[] gameOver = new boolean[3];/*index 0 : is game over / index 1 : does player win*/
 
 
     /**
@@ -40,33 +42,50 @@ public abstract class Game {
     public void newGame(String choosenGame) {
 
         int mode = 0;
+
         while (mode != 4) {
             mode = DisplayAndChooseGameMode();
-            boolean[] gameOver = {false, false};
-            initGame(choosenGame);
-            while (!gameOver[0]) {
-                attemptNumber = attemptSetting - allowedAttempts;
-                if (mode == 3) {
-                    System.out.println("C'est l'heure du Duel!");
-                    System.out.println();
-                    System.out.println("Choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
-                    solutionReturn[0] = recordPlayerCombinationInput();/*Record hidden combination*/
-                    currentPlayer = Player.valueOf(toss());
-                }
-                int[][] returnMode=modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
-                result[currentPlayer.ordinal()] = compareAttemptAndSolution(returnMode);
-                gameOver = analyseResults(result[currentPlayer.ordinal()], mode, currentPlayer.toString());
-                if(gameOver[0]){
-                    displayResults(mode, gameOver[1], solutionReturn[currentPlayer.ordinal()]);
-                }
-                boolean duelAttempt=false;
-                if (mode==1||mode==2||(mode==3 && duelAttempt)){
-                    allowedAttempts = allowedAttempts-1;
-                }
-                duelAttempt=!duelAttempt;
+            gameOver[2] = false;/*index 0: game is over/ index 1: player wins / index 2: player quit mode*/
+            while (!gameOver[2]) {
+                initGame(choosenGame);
+                boolean initModeDuel=false;
+                boolean duelAttempt = false;
+                while (!gameOver[0]) {
+                    attemptNumber = attemptSetting - allowedAttempts;
+                    if (mode == 3&& !initModeDuel) {
+                        System.out.println("C'est l'heure du Duel! Trouvez la combinaison secrète en " + attemptSetting + " tentatives.");
+                        System.out.println();
+                        System.out.println("Joueur choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
+                        solutionReturn[0] = recordPlayerCombinationInput();/*Record hidden combination*/
+                        solutionReturn[1] = aiChooseRandomCombination();/*Record hidden combination*/
+                        currentPlayer = Player.valueOf(toss());
+                        initModeDuel = true;
+                    }
+                    int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
+                    result[currentPlayer.ordinal()] = compareAttemptAndSolution(returnMode);
+                    gameOver = analyseResults(result[currentPlayer.ordinal()], mode, currentPlayer.toString());
+                    if (gameOver[0]) {
+                        displayResults(mode, gameOver[1]);
+                    }
+
+                    if (mode == 1 || mode == 2 || (mode == 3 && duelAttempt)) {
+                        allowedAttempts = allowedAttempts - 1;
+                    }
+                    duelAttempt = !duelAttempt;
+
+                    if (mode == 3) {
+                        if (currentPlayer.toString().equals("Human")) {
+                            currentPlayer = Player.Ai;
+                        } else {
+                            currentPlayer = Player.Human;
+                        }
+                    }
 
 
+                }
+                gameOver[2] = displayNewGameOrMainMenuAndRecordInputPlayerFor();
             }
+
         }
 
     }
@@ -78,6 +97,13 @@ public abstract class Game {
         allowedAttempts = parameters[1] - 1;
         solutionReturn = new int[2][combinationDigitNumber];
         answerReturn = new int[2][combinationDigitNumber];
+        gameOver[0] = false;
+        gameOver[1] = false;
+        rangeAiAnswer = new int[2][combinationDigitNumber];
+        for(int i=0;i<combinationDigitNumber;i++){
+            rangeAiAnswer[0][i]=0;
+            rangeAiAnswer[1][i]=9;
+        }
     }
 
     /* Display mode menu------------------------------------------------------------------------------------------*/
@@ -158,11 +184,10 @@ public abstract class Game {
 
 
     public int[][] modeSequence(int choosenMode, Player currentPlayer, String result) {
-
-        if (choosenMode == 1 || (choosenMode == 3 && currentPlayer.ordinal() == 1)) {
+        if (choosenMode == 1 || (choosenMode == 3 && currentPlayer.ordinal() == 0)) {
             return challengerSequence(choosenMode);
-        } else if (choosenMode == 2 || (choosenMode == 3 && currentPlayer.ordinal() == 2)) {
-            return defenderSequence(result,choosenMode);
+        } else if (choosenMode == 2 || (choosenMode == 3 && currentPlayer.ordinal() == 1)) {
+            return defenderSequence(result, choosenMode);
         }
         return new int[2][4];
     }
@@ -171,7 +196,7 @@ public abstract class Game {
     /*Challenger Sequence--------------------------------------------------------------------------------*/
 
     public int[][] challengerSequence(int choosenMode) {
-        if (attemptNumber == 1 && choosenMode!=3) {
+        if (attemptNumber == 1 && choosenMode != 3) {
             currentPlayer = Player.Human;
             System.out.println("Bienvenue Challenger !");
             System.out.println();
@@ -282,10 +307,10 @@ public abstract class Game {
         String playerWhoBegins;
         if (toss == 0) {
             playerWhoBegins = "Joueur commence !";
-            currentPlayer = "HUMAN";
+            currentPlayer = "Human";
         } else {
             playerWhoBegins = "Ordinateur commence !";
-            currentPlayer = "AI";
+            currentPlayer = "Ai";
         }
         System.out.println(playerWhoBegins);
         return currentPlayer;
@@ -301,14 +326,12 @@ public abstract class Game {
     /**
      * Analyze results and end the game if win condition is true
      *
-     * @param results
      * @param choosenMode
      * @param currentPlayer
      * @return boolean gameOver = true if game is ended
      */
     protected boolean[] analyseResults(String result, int choosenMode, String currentPlayer) {
         StringBuilder winCondition = new StringBuilder();
-        boolean[] gameOver = {false, false}; /*index 0 : is game over / index 1 : does player win*/
         for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
             winCondition.append("=");
         }
@@ -319,7 +342,7 @@ public abstract class Game {
             } else if (choosenMode == 2) {
                 gameOver[1] = false;
             } else if (choosenMode == 3) {
-                if (currentPlayer.equals("HUMAN")) {
+                if (currentPlayer.equals("Human")) {
                     gameOver[1] = true;
                 } else {
                     gameOver[1] = false;
@@ -332,7 +355,7 @@ public abstract class Game {
             } else if (choosenMode == 2) {
                 gameOver[1] = true;
             } else if (choosenMode == 3) {
-                if (currentPlayer.equals("HUMAN")) {
+                if (currentPlayer.equals("Human")) {
                     gameOver[1] = false;
                 } else {
                     gameOver[1] = true;
@@ -348,7 +371,7 @@ public abstract class Game {
      * @param choosenMode
      * @param playerWin
      */
-    protected void displayResults(int choosenMode, boolean playerWin, int[] aiHiddenCombination) {
+    protected void displayResults(int choosenMode, boolean playerWin) {
         StringBuilder answer = new StringBuilder();
         if (playerWin) {
 
@@ -365,12 +388,13 @@ public abstract class Game {
 
         } else {
             for (int i = 0; i < combinationDigitNumber; i++) {
-                answer.append(aiHiddenCombination[i]);
+                answer.append(solutionReturn[1][i]);
             }
             if (choosenMode == 1) {
                 System.out.println("Tu as utilisé toutes tes tentatives, l'ordinateur remporte la partie !");
                 System.out.println();
                 System.out.println("La solution était " + answer + ".");
+
             } else if (choosenMode == 2) {
                 System.out.println("L'ordinateur a trouvé la combinaison, il remporte la partie !");
             } else if (choosenMode == 3) {
@@ -379,6 +403,56 @@ public abstract class Game {
                 System.out.println("La solution était " + answer + ".");
             }
         }
+        System.out.println();
+    }
+
+
+    /**
+     * Define the throwing conditions for PlayerInputError exception when player have to choose new game or quit game
+     *
+     * @param choice
+     * @throws PlayerInputError
+     */
+    public void playerChooseCorrectNewGameOption(int choice) throws PlayerInputError {
+        if (choice < 1 || choice > 2) throw new PlayerInputError();
+    }
+
+    /**
+     * Dispaly new game menu and record input player to choose new game or quit game option
+     *
+     * @return
+     */
+    protected boolean displayNewGameOrMainMenuAndRecordInputPlayerFor() {
+        Scanner sc = new Scanner(System.in);
+        boolean newGame = false;
+        boolean correctInput;
+        int endGameChoice = 0;
+        System.out.println("Partie Terminée !");
+        System.out.println();
+        do {
+
+            System.out.println("1 - Rejouer une partie");
+            System.out.println("2 - Retour au menu mode de jeu");
+            try {
+                endGameChoice = sc.nextInt();
+                playerChooseCorrectNewGameOption(endGameChoice);
+                correctInput = true;
+            } catch (InputMismatchException e) {
+                sc.next();
+                System.out.println("Vous devez saisir un chiffre parmi les choix proposés.");
+                System.out.println();
+                correctInput = false;
+            } catch (PlayerInputError e) {
+                System.out.println("Choisissez parmi les choix proposés.");
+                System.out.println();
+                correctInput = false;
+            }
+        } while (!correctInput);
+
+        if (endGameChoice == 2) {
+            newGame = true;
+        }
+        return newGame;
     }
 
 
