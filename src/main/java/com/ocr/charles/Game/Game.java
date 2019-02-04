@@ -1,11 +1,12 @@
 package com.ocr.charles.Game;
 
 import com.ocr.charles.Exceptions.PlayerInputError;
-import com.ocr.charles.GameMode.ChallengerMode;
 
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.InputMismatchException;
 import java.util.Properties;
 import java.util.Random;
@@ -169,8 +170,10 @@ public abstract class Game {
         Properties properties = new Properties();
         int[] importedValues = new int[2];
         try {
-            properties.load(new FileInputStream("src/main/resources/config.properties"));
+            properties.load(Game.class.getClassLoader().getResourceAsStream("META-INF/config.properties"));
         } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("echec");
         }
         if (choosenGame.equals("searchnumber")) {
             importedValues[0] = Integer.parseInt(properties.getProperty("researchNumberCombinationDigitNumber"));
