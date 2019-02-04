@@ -2,7 +2,7 @@ package com.ocr.charles.Game;
 
 import com.ocr.charles.Exceptions.PlayerInputError;
 import com.ocr.charles.GameMode.ChallengerMode;
-import com.sun.source.tree.WhileLoopTree;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -169,7 +169,7 @@ public abstract class Game {
         Properties properties = new Properties();
         int[] importedValues = new int[2];
         try {
-            properties.load(new FileInputStream("resources/config.properties"));
+            properties.load(new FileInputStream("src/main/resources/config.properties"));
         } catch (IOException e) {
         }
         if (choosenGame.equals("searchnumber")) {
