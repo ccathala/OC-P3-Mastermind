@@ -30,8 +30,9 @@ public class Menu {
 
     /**
      * Record player input for the game choice
+     * @param args
      */
-    public void GameChoice() {
+    public void GameChoice(String args) {
         boolean quitGame = true;
         while (quitGame) {
             boolean correctInput;
@@ -56,10 +57,10 @@ public class Menu {
             } while (!correctInput);
             if (game == 1) {
                 SearchNumber search = new SearchNumber();
-                search.newGame("searchnumber");
+                search.newGame("searchnumber",args);
             } else if(game == 2){
                 Mastermind mastermind = new Mastermind();
-                mastermind.newGame("mastermind");
+                mastermind.newGame("mastermind",args);
             }else if (game == 3) {
                 quitGame = false;
             }
