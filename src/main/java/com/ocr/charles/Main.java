@@ -1,8 +1,13 @@
 package com.ocr.charles;
 import org.apache.commons.cli.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class Main {
     public static void main(String[] args) {
+
+        final Logger logger = LogManager.getLogger(Menu.class);
 
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
@@ -21,10 +26,11 @@ public class Main {
             formatter.printHelp("utility-name", options);
             System.exit(1);
         }
-
-
+        logger.info("---------------------------------------------------------");
+        logger.info("-----------------LANCEMENT APPLICATION-------------------");
         Menu menu = new Menu();
         menu.GameChoice(argument);
+
 
 
         /*String curDir = System.getProperty("user.dir");

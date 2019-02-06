@@ -1,6 +1,9 @@
 package com.ocr.charles.Game;
 
 import com.ocr.charles.Exceptions.PlayerInputError;
+import com.ocr.charles.Menu;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -10,6 +13,7 @@ import java.util.Scanner;
 
 public abstract class Game {
 
+    static final Logger logger = LogManager.getLogger(Menu.class);
 
     protected enum Player {
         Human,
@@ -50,8 +54,12 @@ public abstract class Game {
         }
         while (mode != 4) {
             mode = DisplayAndChooseGameMode();
-            gameOver[2] = false;/*index 0: game is over/ index 1: player wins / index 2: player quit mode*/
+            gameOver[2]=true;
+            if(mode!=4){
+                gameOver[2] = false;/*index 0: game is over/ index 1: player wins / index 2: player quit mode*/
+            }
             while (!gameOver[2]) {
+                logger.info("--------------------Nouvelle partie----------------------");
                 initGame(choosenGame); /* init game parameters */
                 boolean duelInitialized = false;
                 boolean duelAttempt = false; /* used for duel mode, increment attempt only if true */
@@ -59,8 +67,13 @@ public abstract class Game {
                     attemptNumber = attemptSetting - allowedAttempts;
                     if (mode == 3 && !duelInitialized) {
                         duelInitialized = initDuelMode();
+                        logger.info("Mode choisi : Duel");
                     }
                     int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
+                    logger.info("---------------------------------------------------------");
+                    logger.info("Tour " + currentPlayer +" n°" + attemptNumber + " :");
+                    logger.info("Solution : "+ retunModeSequenceForLogger(returnMode,0));
+                    logger.info("Réponse : " + retunModeSequenceForLogger(returnMode,1));
                     result[currentPlayer.ordinal()] = compareAttemptAndSolution(returnMode);
                     gameOver = analyseResults(result[currentPlayer.ordinal()], mode, currentPlayer.toString());
                     if (gameOver[0]) {
@@ -68,10 +81,12 @@ public abstract class Game {
                     }
                     if (mode == 1 || mode == 2 || (mode == 3 && duelAttempt)) {
                         allowedAttempts = allowedAttempts - 1;
+                        logger.info("Tentatives restantes : " + (allowedAttempts+1));
                     }
                     if (mode == 3) {
                         switchPlayer();
                         duelAttempt = !duelAttempt;
+                        logger.info("Prochain joueur : " + currentPlayer);
                     }
                 }
                 gameOver[2] = displayNewGameOrMainMenuAndRecordInputPlayerFor();
@@ -101,12 +116,33 @@ public abstract class Game {
             rangeAiAnswer[0][i] = 0;
             rangeAiAnswer[1][i] = 9;
         }
-        if (parameters[2]==1) {
-            devMode=true;
+        if (parameters[2] == 1) {
+            devMode = true;
+        }
+        if (devMode){
             System.out.println("Mode développeur activé.");
             System.out.println();
         }
+        logger.info("-----------------------Resume init-----------------------");
+        logger.info("Nombre de digits : "+ combinationDigitNumber);
+        logger.info("Tentatives autorisées : " + attemptSetting);
+        logger.info("Tentatives autorisées -1 : " + allowedAttempts);
+        logger.info("Partie terminée : " + gameOver[0]);
+        logger.info("Joueur gagne : " + gameOver[1]);
+        StringBuilder rangeMin= new StringBuilder();
+        StringBuilder rangeMax= new StringBuilder();
+        for(int i=0;i<combinationDigitNumber;i++){
+            rangeMin.append(rangeAiAnswer[0][i]).append(" ");
+            rangeMax.append(rangeAiAnswer[1][i]).append(" ");
+        }
+        logger.info("Range min: " + rangeMin);
+        logger.info("Range max: " + rangeMax);
+        logger.info("Développeur mode : " + devMode);
+        logger.info("--------------------Fin resume init----------------------");
     }
+
+
+
     /*---------------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
@@ -148,13 +184,18 @@ public abstract class Game {
                 sc.next();
                 System.out.println("Vous devez saisir un chiffre parmi les choix proposés.");
                 System.out.println();
+                logger.info("Erreur saisie utilisateur");
                 correctInput = false;
             } catch (PlayerInputError e) {
                 System.out.println("Choisissez parmi les choix proposés.");
                 System.out.println();
+                logger.info("Erreur saisie utilisateur");
                 correctInput = false;
             }
         } while (!correctInput);
+        if (mode==4){
+            logger.info("Retour menu choix du jeu");
+        }
 
         return mode;
     }
@@ -175,7 +216,7 @@ public abstract class Game {
         Properties properties = new Properties();
         int[] importedValues = new int[3];
         try {
-            properties.load(Game.class.getClassLoader().getResourceAsStream("META-INF/config.properties"));
+            properties.load(Game.class.getClassLoader().getResourceAsStream("config.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -209,6 +250,7 @@ public abstract class Game {
             System.out.println();
             System.out.println("Trouve la combinaison cachée à " + combinationDigitNumber + " chiffres en " + attemptSetting + " tentatives.");
             solutionReturn[1] = aiChooseRandomCombination();/*Record hidden combination*/
+            logger.info("Mode choisi : Challenger");
         }
         System.out.println("----------------------------------");
         System.out.print("Tour joueur n°" + attemptNumber + " : ");
@@ -249,8 +291,8 @@ public abstract class Game {
             System.out.println("Bienvenue Défenseur !");
             System.out.println();
             System.out.println("Choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
-
             solutionReturn[0] = recordPlayerCombinationInput();/*Record hidden combination*/
+            logger.info("Mode choisi : Defender");
         }
         System.out.println("----------------------------------");
         System.out.print("Tour ordinateur n°" + attemptNumber + " : ");
@@ -261,9 +303,7 @@ public abstract class Game {
         return defenderReturn;
     }
 
-    public int[] generateAndDisplayAiAnswer(String result) {
-        return new int[1];
-    }
+    public abstract int[] generateAndDisplayAiAnswer(String result);
 
     /*---------------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
@@ -409,6 +449,8 @@ public abstract class Game {
                 }
             }
         }
+        logger.info("La partie est terminée : "+gameOver[0]);
+        logger.info("Le joueur remporte la partie : "+gameOver[1]);
         return gameOver;
     }
 
@@ -494,10 +536,12 @@ public abstract class Game {
                 sc.next();
                 System.out.println("Vous devez saisir un chiffre parmi les choix proposés.");
                 System.out.println();
+                logger.info("Erreur saisie utilisateur");
                 correctInput = false;
             } catch (PlayerInputError e) {
                 System.out.println("Choisissez parmi les choix proposés.");
                 System.out.println();
+                logger.info("Erreur saisie utilisateur");
                 correctInput = false;
             }
         } while (!correctInput);
@@ -505,10 +549,25 @@ public abstract class Game {
         if (endGameChoice == 2) {
             newGame = true;
         }
+        logger.info("---------------------------------------------------------");
+        logger.info("Joueur rejoue une partie : " + !newGame);
+        logger.info("Retour menu choix du mode : " + newGame);
         return newGame;
     }
     /*---------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------*/
 
+        public String retunModeSequenceForLogger(int[][]modeSequence, int solutionOrAnswerIndex){
+            String[] returModeValues = new String[2];
+            StringBuilder solution = new StringBuilder();
+            StringBuilder answer = new StringBuilder();
+            for(int i =0;i<combinationDigitNumber;i++){
+                solution.append(modeSequence[0][i]).append(" ");
+                answer.append(modeSequence[1][i]).append(" ");
+            }
+            returModeValues[0]= String.valueOf(solution);
+            returModeValues[1]= String.valueOf(answer);
+            return returModeValues[solutionOrAnswerIndex];
+        }
 
 }

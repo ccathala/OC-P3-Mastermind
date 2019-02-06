@@ -6,7 +6,10 @@ public class Mastermind extends Game {
         System.out.println("----------[Mastermind]----------");
     }
 
-    public int[] generateAndDisplayAiAnswer(int combinationDigitNumber, int attemptNumber, String result) {
-        return new int[1];
+    @Override
+    public int[] generateAndDisplayAiAnswer(String result) {
+        return new int[0];
     }
+
+
 }

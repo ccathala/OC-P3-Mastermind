@@ -21,17 +21,25 @@ public class SearchNumber extends Game {
             System.out.println(displayAnswer);
             return aiAnswerCombination;
         } else {
+            StringBuilder rangeMin = new StringBuilder();
+            StringBuilder rangeMax = new StringBuilder();
             for (int i = 0; i < combinationDigitNumber; i++) {
+
                 if (result.charAt(i) == '+') {
                     rangeAiAnswer[0][i] = answerReturn[1][i] + 1;
+                    rangeMin.append(rangeAiAnswer[0][i]).append(" ");
+                    rangeMax.append(rangeAiAnswer[1][i]).append(" ");
                     aiAnswerCombination[i] = rangeAiAnswer[0][i] + ((rangeAiAnswer[1][i] - rangeAiAnswer[0][i]) / 2);
                 } else if (result.charAt(i) == '-') {
                     rangeAiAnswer[1][i] = answerReturn[1][i] - 1;
+                    rangeMin.append(rangeAiAnswer[0][i]).append(" ");
+                    rangeMax.append(rangeAiAnswer[1][i]).append(" ");
                     aiAnswerCombination[i] = rangeAiAnswer[1][i] - ((rangeAiAnswer[1][i] - rangeAiAnswer[0][i]) / 2);
                 }
                 displayAnswer.append(aiAnswerCombination[i]);
-
             }
+            logger.info("MAJ range Mini : " +rangeMin);
+            logger.info("MAJ range Maxi : " +rangeMax);
             System.out.println(displayAnswer);
             return aiAnswerCombination;
 
@@ -57,6 +65,7 @@ public class SearchNumber extends Game {
         }
         System.out.print("      ->Réponse : ");
         System.out.println(comparator.toString());
+        logger.info("Résultat : " +comparator);
         return comparator.toString();
     }
 }

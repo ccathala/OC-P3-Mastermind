@@ -3,11 +3,18 @@ package com.ocr.charles;
 import com.ocr.charles.Exceptions.PlayerInputError;
 import com.ocr.charles.Game.Mastermind;
 import com.ocr.charles.Game.SearchNumber;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+
 public class Menu {
+
+    static final Logger logger = LogManager.getLogger(Menu.class);
 
     /**
      * Display game menu choice
@@ -48,22 +55,33 @@ public class Menu {
                     sc.next();
                     System.out.println("Vous devez saisir un chiffre parmi les choix proposés.");
                     System.out.println();
+                    logger.info("Erreur saisie utilisateur");
                     correctInput = false;
                 } catch (PlayerInputError e) {
                     System.out.println("Choisissez parmi les choix proposés.");
                     System.out.println();
+                    logger.info("Erreur saisie utilisateur");
                     correctInput = false;
                 }
             } while (!correctInput);
             if (game == 1) {
+                logger.info("Jeu choisi : SearchNumber");
                 SearchNumber search = new SearchNumber();
                 search.newGame("searchnumber",args);
+
             } else if(game == 2){
+                logger.info("Jeu choisi  : Mastermind");
                 Mastermind mastermind = new Mastermind();
                 mastermind.newGame("mastermind",args);
+
             }else if (game == 3) {
+
+                logger.info("----------------SORTIE DE L'APPLICATION------------------");
+                logger.info("---------------------------------------------------------");
                 quitGame = false;
             }
         }
     }
+
+
 }
