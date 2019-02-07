@@ -76,7 +76,7 @@ public class Menu {
 
             }else if (game == 3) {
 
-                logger.info("----------------SORTIE DE L'APPLICATION------------------");
+                logger.info("--------------FERMETURE DE L'APPLICATION-----------------");
                 logger.info("---------------------------------------------------------");
                 quitGame = false;
             }

@@ -23,9 +23,10 @@ public abstract class Game {
     protected int[][] solutionReturn; /* int[2][x digit] / index 0 player solution  / index 1 AI solution  */
     protected int[][] answerReturn; /* int[2][x digit] / index 0 player answer  / index 1 AI answer  */
     protected int[][] rangeAiAnswer;
-    private String[] result = new String[2]; /* Index 0 => player result/Index 1 Ai result */
+    private String[][] result = new String[2][3]; /* Index 0 => player result/Index 1 Ai result */
     protected Player currentPlayer = Player.Human;
     protected int combinationDigitNumber;
+    protected int mastermindAllowedNumber;
     private int attemptSetting;
     private int allowedAttempts;
     protected int attemptNumber;
@@ -69,13 +70,13 @@ public abstract class Game {
                         duelInitialized = initDuelMode();
                         logger.info("Mode choisi : Duel");
                     }
-                    int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
+                    int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()][0]);
                     logger.info("---------------------------------------------------------");
                     logger.info("Tour " + currentPlayer +" n°" + attemptNumber + " :");
                     logger.info("Solution : "+ retunModeSequenceForLogger(returnMode,0));
                     logger.info("Réponse : " + retunModeSequenceForLogger(returnMode,1));
                     result[currentPlayer.ordinal()] = compareAttemptAndSolution(returnMode);
-                    gameOver = analyseResults(result[currentPlayer.ordinal()], mode, currentPlayer.toString());
+                    gameOver = analyseResults(result[currentPlayer.ordinal()][0], mode, currentPlayer.toString());
                     if (gameOver[0]) {
                         displayResults(mode, gameOver[1]);
                     }
@@ -103,8 +104,9 @@ public abstract class Game {
      * @param choosenGame
      */
     public void initGame(String choosenGame) {
-        int[] parameters = importParameterFromConfigProperties(choosenGame); /*load parameters from config.properties*/
+        int[] parameters = importParameterFromConfigProperties(); /*load parameters from config.properties*/
         combinationDigitNumber = parameters[0];
+        mastermindAllowedNumber = parameters[3];
         attemptSetting = parameters[1];
         allowedAttempts = parameters[1] - 1;
         solutionReturn = new int[2][combinationDigitNumber];
@@ -211,25 +213,8 @@ public abstract class Game {
      *                    importedValues[1] rules the amount of allowed attempts
      * @return imported values
      */
-    protected int[] importParameterFromConfigProperties(String choosenGame) {
+    protected abstract int[] importParameterFromConfigProperties();
 
-        Properties properties = new Properties();
-        int[] importedValues = new int[3];
-        try {
-            properties.load(Game.class.getClassLoader().getResourceAsStream("config.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (choosenGame.equals("searchnumber")) {
-            importedValues[0] = Integer.parseInt(properties.getProperty("researchNumberCombinationDigitNumber"));
-            importedValues[1] = Integer.parseInt(properties.getProperty("researchNumberAllowedAttempts"));
-        } else if (choosenGame.equals("mastermind")) {
-            importedValues[0] = Integer.parseInt(properties.getProperty("mastermindCombinationDigitNumber"));
-            importedValues[1] = Integer.parseInt(properties.getProperty("mastermindAllowedAttempts"));
-        }
-        importedValues[2] = Integer.parseInt(properties.getProperty("devMode"));
-        return importedValues;
-    }
 
     public int[][] modeSequence(int choosenMode, Player currentPlayer, String result) {
         if (choosenMode == 1 || (choosenMode == 3 && currentPlayer.ordinal() == 0)) {
@@ -267,9 +252,8 @@ public abstract class Game {
     protected int[] aiChooseRandomCombination() {
         int[] aiHiddenCombination = new int[combinationDigitNumber];
         StringBuilder aiHiddenCombinationString = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < combinationDigitNumber; i++) {
-            aiHiddenCombination[i] = random.nextInt(10);
+            aiHiddenCombination[i] = randomNumber();
             aiHiddenCombinationString.append(aiHiddenCombination[i]);
         }
         if (devMode) {
@@ -278,6 +262,8 @@ public abstract class Game {
         System.out.println();
         return aiHiddenCombination;
     }
+
+    protected abstract int randomNumber();
 
     /*---------------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
@@ -311,9 +297,7 @@ public abstract class Game {
     /*Record player input for both mode -----------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
-        if (playerInput.length != combinationDigitNumber) throw new PlayerInputError();
-    }
+    protected abstract void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError;
 
     /**
      * Record player input combination composed by X digits between 0 and 9
@@ -406,9 +390,7 @@ public abstract class Game {
     /* Compare, analyze, display result------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public String compareAttemptAndSolution(int[][] solutionAndAttempt) {
-        return "";
-    }
+    public abstract String[] compareAttemptAndSolution(int[][] solutionAndAttempt);
 
     /**
      * Analyze results and end the game if win condition is true
@@ -509,7 +491,7 @@ public abstract class Game {
      * @throws PlayerInputError
      */
     public void playerChooseCorrectNewGameOption(int choice) throws PlayerInputError {
-        if (choice < 1 || choice > 2) throw new PlayerInputError();
+        if (choice < 1 || choice > 3) throw new PlayerInputError();
     }
 
     /**
@@ -528,6 +510,7 @@ public abstract class Game {
 
             System.out.println("1 - Rejouer une partie");
             System.out.println("2 - Retour au menu mode de jeu");
+            System.out.println("3 - Quitter l'application");
             try {
                 endGameChoice = sc.nextInt();
                 playerChooseCorrectNewGameOption(endGameChoice);
@@ -545,13 +528,19 @@ public abstract class Game {
                 correctInput = false;
             }
         } while (!correctInput);
-
-        if (endGameChoice == 2) {
-            newGame = true;
+        if(endGameChoice==1){
+            logger.info("---------------------------------------------------------");
+            logger.info("Joueur rejoue une partie.");
         }
-        logger.info("---------------------------------------------------------");
-        logger.info("Joueur rejoue une partie : " + !newGame);
-        logger.info("Retour menu choix du mode : " + newGame);
+        else if(endGameChoice == 2) {
+            newGame = true;
+            logger.info("---------------------------------------------------------");
+            logger.info("Retour menu choix du mode.");
+        }else if(endGameChoice==3){
+            logger.info("--------------FERMETURE DE L'APPLICATION-----------------");
+            logger.info("---------------------------------------------------------");
+            System.exit(1);
+        }
         return newGame;
     }
     /*---------------------------------------------------------------------------------------------------------------*/

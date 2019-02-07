@@ -1,5 +1,11 @@
 package com.ocr.charles.Game;
 
+import com.ocr.charles.Exceptions.PlayerInputError;
+
+import java.io.IOException;
+import java.util.Properties;
+import java.util.Random;
+
 public class SearchNumber extends Game {
 
     @Override
@@ -38,8 +44,8 @@ public class SearchNumber extends Game {
                 }
                 displayAnswer.append(aiAnswerCombination[i]);
             }
-            logger.info("MAJ range Mini : " +rangeMin);
-            logger.info("MAJ range Maxi : " +rangeMax);
+            logger.info("MAJ range Mini : " + rangeMin);
+            logger.info("MAJ range Maxi : " + rangeMax);
             System.out.println(displayAnswer);
             return aiAnswerCombination;
 
@@ -47,9 +53,11 @@ public class SearchNumber extends Game {
         }
     }
 
-    public String compareAttemptAndSolution(int[][] solutionAndAttempt) {
+    @Override
+    public String[] compareAttemptAndSolution(int[][] solutionAndAttempt) {
         String[] comparatorTable = new String[combinationDigitNumber];
         StringBuilder comparator = new StringBuilder();
+        String[] comparaisonReturn = new String[3];
         for (int i = 0; i < combinationDigitNumber; i++) {
             if (solutionAndAttempt[1][i] == solutionAndAttempt[0][i]) {
                 comparatorTable[i] = "=";
@@ -60,12 +68,39 @@ public class SearchNumber extends Game {
             }
             comparator.append(comparatorTable[i]);
         }
-        if(currentPlayer.ordinal()==1){
+        if (currentPlayer.ordinal() == 1) {
             System.out.print("    ");
         }
         System.out.print("      ->Réponse : ");
         System.out.println(comparator.toString());
-        logger.info("Résultat : " +comparator);
-        return comparator.toString();
+        logger.info("Résultat : " + comparator);
+        comparaisonReturn[0]=comparator.toString();
+        return comparaisonReturn;
+    }
+
+    @Override
+    protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
+        if (playerInput.length != combinationDigitNumber) throw new PlayerInputError();
+    }
+    @Override
+    protected int[] importParameterFromConfigProperties() {
+
+        Properties properties = new Properties();
+        int[] importedValues = new int[4];
+        try {
+            properties.load(Game.class.getClassLoader().getResourceAsStream("config.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        importedValues[0] = Integer.parseInt(properties.getProperty("researchNumberCombinationDigitNumber"));
+        importedValues[1] = Integer.parseInt(properties.getProperty("researchNumberAllowedAttempts"));
+        importedValues[2] = Integer.parseInt(properties.getProperty("devMode"));
+        return importedValues;
+    }
+
+    @Override
+    protected int randomNumber(){
+        Random random = new Random();
+        return random.nextInt(10);
     }
 }
