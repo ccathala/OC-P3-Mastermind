@@ -23,7 +23,7 @@ public class Menu {
         System.out.println("Bienvenue joueur, choisi ton jeu");
         System.out.println("1 - Recherche +/-");
         System.out.println("2 - Mastermind");
-        System.out.println("3 - Quitter le jeu");
+        System.out.println("3 - Quitter l'application");
     }
 
     /**
