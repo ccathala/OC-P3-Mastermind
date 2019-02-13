@@ -14,7 +14,7 @@ public class SearchNumber extends Game {
     }
 
     @Override
-    public int[] generateAndDisplayAiAnswer(String result) {
+    public int[] generateAndDisplayAiAnswer(String[] result) {
         StringBuilder displayAnswer = new StringBuilder();
         int[] aiAnswerCombination = new int[combinationDigitNumber];
         if (attemptNumber == 1) {
@@ -31,12 +31,12 @@ public class SearchNumber extends Game {
             StringBuilder rangeMax = new StringBuilder();
             for (int i = 0; i < combinationDigitNumber; i++) {
 
-                if (result.charAt(i) == '+') {
+                if (result[0].charAt(i) == '+') {
                     rangeAiAnswer[0][i] = answerReturn[1][i] + 1;
                     rangeMin.append(rangeAiAnswer[0][i]).append(" ");
                     rangeMax.append(rangeAiAnswer[1][i]).append(" ");
                     aiAnswerCombination[i] = rangeAiAnswer[0][i] + ((rangeAiAnswer[1][i] - rangeAiAnswer[0][i]) / 2);
-                } else if (result.charAt(i) == '-') {
+                } else if (result[0].charAt(i) == '-') {
                     rangeAiAnswer[1][i] = answerReturn[1][i] - 1;
                     rangeMin.append(rangeAiAnswer[0][i]).append(" ");
                     rangeMax.append(rangeAiAnswer[1][i]).append(" ");
@@ -74,7 +74,7 @@ public class SearchNumber extends Game {
         System.out.print("      ->Réponse : ");
         System.out.println(comparator.toString());
         logger.info("Résultat : " + comparator);
-        comparaisonReturn[0]=comparator.toString();
+        comparaisonReturn[0] = comparator.toString();
         return comparaisonReturn;
     }
 
@@ -82,6 +82,7 @@ public class SearchNumber extends Game {
     protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
         if (playerInput.length != combinationDigitNumber) throw new PlayerInputError();
     }
+
     @Override
     protected int[] importParameterFromConfigProperties() {
 
@@ -99,7 +100,7 @@ public class SearchNumber extends Game {
     }
 
     @Override
-    protected int randomNumber(){
+    protected int randomNumber() {
         Random random = new Random();
         return random.nextInt(10);
     }

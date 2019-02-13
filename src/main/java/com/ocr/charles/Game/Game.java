@@ -23,7 +23,7 @@ public abstract class Game {
     protected int[][] solutionReturn; /* int[2][x digit] / index 0 player solution  / index 1 AI solution  */
     protected int[][] answerReturn; /* int[2][x digit] / index 0 player answer  / index 1 AI answer  */
     protected int[][] rangeAiAnswer;
-    private String[][] result = new String[2][3]; /* Index 0 => player result/Index 1 Ai result */
+    private String[][] result = new String[2][2]; /* Index 0 => player result/Index 1 Ai result */
     protected Player currentPlayer = Player.Human;
     protected int combinationDigitNumber;
     protected int mastermindAllowedNumber;
@@ -70,7 +70,7 @@ public abstract class Game {
                         duelInitialized = initDuelMode();
                         logger.info("Mode choisi : Duel");
                     }
-                    int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()][0]);
+                    int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
                     logger.info("---------------------------------------------------------");
                     logger.info("Tour " + currentPlayer +" n°" + attemptNumber + " :");
                     logger.info("Solution : "+ retunModeSequenceForLogger(returnMode,0));
@@ -208,7 +208,7 @@ public abstract class Game {
     /**
      * Import parameters from file config.properties
      *
-     * @param choosenGame choosen game input
+     *
      *                    importedValues[0] rules the number of digits of the secret combination
      *                    importedValues[1] rules the amount of allowed attempts
      * @return imported values
@@ -216,7 +216,7 @@ public abstract class Game {
     protected abstract int[] importParameterFromConfigProperties();
 
 
-    public int[][] modeSequence(int choosenMode, Player currentPlayer, String result) {
+    public int[][] modeSequence(int choosenMode, Player currentPlayer, String [] result) {
         if (choosenMode == 1 || (choosenMode == 3 && currentPlayer.ordinal() == 0)) {
             return challengerSequence(choosenMode);
         } else if (choosenMode == 2 || (choosenMode == 3 && currentPlayer.ordinal() == 1)) {
@@ -271,7 +271,7 @@ public abstract class Game {
     /*Defender Sequence----------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public int[][] defenderSequence(String result, int choosenMode) {
+    public int[][] defenderSequence(String [] result, int choosenMode) {
         if (attemptNumber == 1 && choosenMode != 3) {
             currentPlayer = Player.Ai;
             System.out.println("Bienvenue Défenseur !");
@@ -289,7 +289,7 @@ public abstract class Game {
         return defenderReturn;
     }
 
-    public abstract int[] generateAndDisplayAiAnswer(String result);
+    public abstract int[] generateAndDisplayAiAnswer(String[] result);
 
     /*---------------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
