@@ -45,10 +45,10 @@ public abstract class Game {
     /**
      * Launch new game according to choosen game/mode
      *
-     * @param choosenGame
+     *
      * @param args
      */
-    public void newGame(String choosenGame, String args) {
+    public void newGame(String args) {
         int mode = 0;
         if (args.equals("dev")) {
             devMode = true;
@@ -61,7 +61,7 @@ public abstract class Game {
             }
             while (!gameOver[2]) {
                 logger.info("--------------------Nouvelle partie----------------------");
-                initGame(choosenGame); /* init game parameters */
+                initGame(); /* init game parameters */
                 boolean duelInitialized = false;
                 boolean duelAttempt = false; /* used for duel mode, increment attempt only if true */
                 while (!gameOver[0]) {
@@ -101,9 +101,9 @@ public abstract class Game {
     /**
      * Init new game parameters
      *
-     * @param choosenGame
+     *
      */
-    public void initGame(String choosenGame) {
+    public void initGame() {
         int[] parameters = importParameterFromConfigProperties(); /*load parameters from config.properties*/
         combinationDigitNumber = parameters[0];
         mastermindAllowedNumber = parameters[3];
