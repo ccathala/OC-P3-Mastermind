@@ -67,12 +67,12 @@ public class Menu {
             if (game == 1) {
                 logger.info("Jeu choisi : SearchNumber");
                 SearchNumber search = new SearchNumber();
-                search.newGame("searchnumber",args);
+                search.newGame(args);
 
             } else if(game == 2){
                 logger.info("Jeu choisi  : Mastermind");
                 Mastermind mastermind = new Mastermind();
-                mastermind.newGame("mastermind",args);
+                mastermind.newGame(args);
 
             }else if (game == 3) {
 

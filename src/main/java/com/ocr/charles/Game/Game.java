@@ -23,7 +23,7 @@ public abstract class Game {
     protected int[][] solutionReturn; /* int[2][x digit] / index 0 player solution  / index 1 AI solution  */
     protected int[][] answerReturn; /* int[2][x digit] / index 0 player answer  / index 1 AI answer  */
     protected int[][] rangeAiAnswer;
-    private String[][] result = new String[2][2]; /* Index 0 => player result/Index 1 Ai result */
+    private String[] result = new String[2]; /* Index 0 => player result/Index 1 Ai result */
     protected Player currentPlayer = Player.Human;
     protected int combinationDigitNumber;
     protected int mastermindAllowedNumber;
@@ -71,12 +71,15 @@ public abstract class Game {
                         logger.info("Mode choisi : Duel");
                     }
                     int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
+                    int[] solution = returnMode[0];
+                    int[] answer = returnMode[1];
                     logger.info("---------------------------------------------------------");
                     logger.info("Tour " + currentPlayer +" n°" + attemptNumber + " :");
-                    logger.info("Solution : "+ retunModeSequenceForLogger(returnMode,0));
-                    logger.info("Réponse : " + retunModeSequenceForLogger(returnMode,1));
-                    result[currentPlayer.ordinal()] = compareAttemptAndSolution(returnMode);
-                    gameOver = analyseResults(result[currentPlayer.ordinal()][0], mode, currentPlayer.toString());
+                    logger.info("Solution : "+ returnModeSequenceForLogger(returnMode,0));
+                    logger.info("Réponse : " + returnModeSequenceForLogger(returnMode,1));
+                    result[currentPlayer.ordinal()] = compareSolutionAndAttempt(solution,answer);
+                    displayIndications(result[currentPlayer.ordinal()]);
+                    gameOver = analyseResults(isGameWon(result[currentPlayer.ordinal()]), mode, currentPlayer.toString());
                     if (gameOver[0]) {
                         displayResults(mode, gameOver[1]);
                     }
@@ -216,7 +219,7 @@ public abstract class Game {
     protected abstract int[] importParameterFromConfigProperties();
 
 
-    public int[][] modeSequence(int choosenMode, Player currentPlayer, String [] result) {
+    public int[][] modeSequence(int choosenMode, Player currentPlayer, String result) {
         if (choosenMode == 1 || (choosenMode == 3 && currentPlayer.ordinal() == 0)) {
             return challengerSequence(choosenMode);
         } else if (choosenMode == 2 || (choosenMode == 3 && currentPlayer.ordinal() == 1)) {
@@ -271,7 +274,7 @@ public abstract class Game {
     /*Defender Sequence----------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public int[][] defenderSequence(String [] result, int choosenMode) {
+    public int[][] defenderSequence(String result, int choosenMode) {
         if (attemptNumber == 1 && choosenMode != 3) {
             currentPlayer = Player.Ai;
             System.out.println("Bienvenue Défenseur !");
@@ -289,7 +292,7 @@ public abstract class Game {
         return defenderReturn;
     }
 
-    public abstract int[] generateAndDisplayAiAnswer(String[] result);
+    public abstract int[] generateAndDisplayAiAnswer(String result);
 
     /*---------------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
@@ -390,7 +393,11 @@ public abstract class Game {
     /* Compare, analyze, display result------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public abstract String[] compareAttemptAndSolution(int[][] solutionAndAttempt);
+    public abstract String compareSolutionAndAttempt(int[] solution, int[] answer);
+
+    public abstract void displayIndications(String result);
+
+    public abstract boolean isGameWon(String result);
 
     /**
      * Analyze results and end the game if win condition is true
@@ -399,12 +406,8 @@ public abstract class Game {
      * @param currentPlayer
      * @return boolean gameOver = true if game is ended
      */
-    protected boolean[] analyseResults(String result, int choosenMode, String currentPlayer) {
-        StringBuilder winCondition = new StringBuilder();
-        for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
-            winCondition.append("=");
-        }
-        if ((result.equals(winCondition.toString()))) {
+    protected boolean[] analyseResults(boolean isGameWon, int choosenMode, String currentPlayer) {
+        if (isGameWon) {
             gameOver[0] = true;
             if (choosenMode == 1) {
                 gameOver[1] = true;
@@ -546,17 +549,17 @@ public abstract class Game {
     /*---------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------*/
 
-        public String retunModeSequenceForLogger(int[][]modeSequence, int solutionOrAnswerIndex){
-            String[] returModeValues = new String[2];
+        public String returnModeSequenceForLogger(int[][]modeSequence, int solutionOrAnswerIndex){
+            String[] returnModeValues = new String[2];
             StringBuilder solution = new StringBuilder();
             StringBuilder answer = new StringBuilder();
             for(int i =0;i<combinationDigitNumber;i++){
                 solution.append(modeSequence[0][i]).append(" ");
                 answer.append(modeSequence[1][i]).append(" ");
             }
-            returModeValues[0]= String.valueOf(solution);
-            returModeValues[1]= String.valueOf(answer);
-            return returModeValues[solutionOrAnswerIndex];
+            returnModeValues[0]= String.valueOf(solution);
+            returnModeValues[1]= String.valueOf(answer);
+            return returnModeValues[solutionOrAnswerIndex];
         }
 
 }

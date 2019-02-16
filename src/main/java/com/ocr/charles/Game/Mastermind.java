@@ -1,5 +1,6 @@
 package com.ocr.charles.Game;
 
+
 import com.ocr.charles.Exceptions.PlayerInputError;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ public class Mastermind extends Game {
 
     private int indexTable = 0;
     private int[][] scoreTable;
-    private int[][] propositionsTable = new int[(int) Math.pow((double) mastermindAllowedNumber, combinationDigitNumber)][combinationDigitNumber];
+    private LinkedList<int[]>propositionsList = new LinkedList<>();
     private LinkedList<Integer> scoresList = new LinkedList<>();
     // liste construite par la recursion
     private int[] liste = new int[combinationDigitNumber];
@@ -25,16 +26,21 @@ public class Mastermind extends Game {
     }
 
     @Override
-    public int[] generateAndDisplayAiAnswer(String[] result) {
+    public int[] generateAndDisplayAiAnswer(String result) {
         if (attemptNumber == 1) {
             generateCombinationList(0);
-            generateScoresList();
-            int minWeight = scoreCalculation();
-            int[] optimizedProposition = optimizedPropositionChoice(minWeight);
-            return optimizedProposition;
+            return propositionsList.get(0);
         }
         else{
-            return new int[1];
+            for (int i=1;i<propositionsList.size();i++){
+                String score = compareSolutionAndAttempt(propositionsList.get(0),propositionsList.get(i));
+                if(!score.equals(result)){
+                    propositionsList.remove(i);
+                    i=i-1;
+                }
+            }
+            propositionsList.remove(0);
+            return propositionsList.get(0);
         }
     }
 
@@ -47,25 +53,13 @@ public class Mastermind extends Game {
     }
 
     @Override
-    public String[] compareAttemptAndSolution(int[][] solutionAndAttempt) {
-        String[] comparatorTable = new String[combinationDigitNumber];
-        String[] comparaisonReturn = new String[2];
-        StringBuilder comparator = new StringBuilder();
+    public String compareSolutionAndAttempt(int[]solution, int[]answer) {
         int numberWellplaced = 0;
         int numberInCombination = 0;
         int min = 0;
+
         for (int i = 0; i < combinationDigitNumber; i++) {
-            if (solutionAndAttempt[1][i] == solutionAndAttempt[0][i]) {
-                comparatorTable[i] = "=";
-            } else if (solutionAndAttempt[1][i] < solutionAndAttempt[0][i]) {
-                comparatorTable[i] = "+";
-            } else {
-                comparatorTable[i] = "-";
-            }
-            comparator.append(comparatorTable[i]);
-        }
-        for (int i = 0; i < combinationDigitNumber; i++) {
-            if (solutionAndAttempt[0][i] == solutionAndAttempt[1][i]) {
+            if (solution[i] == answer[i]) {
                 numberWellplaced = numberWellplaced + 1;
             }
         }
@@ -74,18 +68,23 @@ public class Mastermind extends Game {
             occurencies.add(0, 0);
             occurencies.add(1, 0);
             for (int j = 0; j < combinationDigitNumber; j++) {
-                if (solutionAndAttempt[0][j] == i) {
+                if (solution[j] == i) {
                     occurencies.set(0, occurencies.get(0) + 1);
                 }
-                if (solutionAndAttempt[1][j] == i) {
+                if (answer[j] == i) {
                     occurencies.set(1, occurencies.get(1) + 1);
                 }
             }
             min = min + Collections.min(occurencies);
         }
         numberInCombination = min - numberWellplaced;
-        comparaisonReturn[0] = comparator.toString();
-        comparaisonReturn[1] = String.valueOf((numberWellplaced * 10) + numberInCombination);
+        return String.valueOf((numberWellplaced * 10) + numberInCombination);
+    }
+
+    @Override
+    public void displayIndications(String result){
+        int numberWellplaced = Integer.parseInt(result)/10;
+        int numberInCombination = Integer.parseInt(result) - numberWellplaced*10;
         System.out.print("->Réponse : ");
         if (numberWellplaced <= 1) {
             System.out.println(numberWellplaced + " chiffre bien placé.");
@@ -99,8 +98,15 @@ public class Mastermind extends Game {
         }
         logger.info("Chiffres bien placés : " + numberWellplaced);
         logger.info("Chiffres présents, mal placés : " + numberInCombination);
-        logger.info("Résultat : " + comparator);
-        return comparaisonReturn;
+    }
+
+    @Override
+    public boolean isGameWon(String result){
+        if(Integer.parseInt(result)==combinationDigitNumber*10){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
@@ -136,7 +142,7 @@ public class Mastermind extends Game {
             for (int i = 0; i < combinationDigitNumber; i++) {
                 propositionTemplate[i] = (liste[i]);
             }
-            propositionsTable[indexTable] = propositionTemplate;
+            propositionsList.add(propositionTemplate);
             /*System.out.println(propositionsTable[indexTable][0]);*/
             indexTable = indexTable + 1;
             /*System.out.println(test);*/
@@ -175,15 +181,15 @@ public class Mastermind extends Game {
     }
 
 
-    public int scoreCalculation() {
+   /* public int scoreCalculation() {
         int[][] solutionAndAttempt = new int[2][combinationDigitNumber];
         int score = 0;
         int minWeight = 0;
         // choix de la proposition de référence
-        for (int i = 0; i < propositionsTable.length; i++) {
-            solutionAndAttempt[0] = propositionsTable[i];
+        for (int i = 0; i < propositionsList.size(); i++) {
+            solutionAndAttempt[0] = propositionsList[i];
             // choix de la proposition candidate
-            for (int j = 0; j < propositionsTable.length; j++) {
+            for (int j = 0; j < propositionsList.length; j++) {
                 if (i == j) {
                     j++;
                 }
@@ -214,15 +220,15 @@ public class Mastermind extends Game {
             }
         }
         return minWeight;
-    }
+    }*/
 
-    public int[] optimizedPropositionChoice(int minWeight) {
+    /*public int[] optimizedPropositionChoice(int minWeight) {
         int i = 0;
         while (scoreTable[i][scoresList.size() + 1] != minWeight) {
             i++;
         }
         return propositionsTable[i];
-    }
+    }*/
 
 
 }

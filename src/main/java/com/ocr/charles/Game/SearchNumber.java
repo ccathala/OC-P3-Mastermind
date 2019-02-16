@@ -14,13 +14,11 @@ public class SearchNumber extends Game {
     }
 
     @Override
-    public int[] generateAndDisplayAiAnswer(String[] result) {
+    public int[] generateAndDisplayAiAnswer(String result) {
         StringBuilder displayAnswer = new StringBuilder();
         int[] aiAnswerCombination = new int[combinationDigitNumber];
         if (attemptNumber == 1) {
             for (int i = 0; i < combinationDigitNumber; i++) {
-                /*rangeAiAnswer[0][i] = 0;
-                rangeAiAnswer[1][i] = 9;*/
                 aiAnswerCombination[i] = 5;
                 displayAnswer.append(aiAnswerCombination[i]);
             }
@@ -31,12 +29,12 @@ public class SearchNumber extends Game {
             StringBuilder rangeMax = new StringBuilder();
             for (int i = 0; i < combinationDigitNumber; i++) {
 
-                if (result[0].charAt(i) == '+') {
+                if (result.charAt(i) == '+') {
                     rangeAiAnswer[0][i] = answerReturn[1][i] + 1;
                     rangeMin.append(rangeAiAnswer[0][i]).append(" ");
                     rangeMax.append(rangeAiAnswer[1][i]).append(" ");
                     aiAnswerCombination[i] = rangeAiAnswer[0][i] + ((rangeAiAnswer[1][i] - rangeAiAnswer[0][i]) / 2);
-                } else if (result[0].charAt(i) == '-') {
+                } else if (result.charAt(i) == '-') {
                     rangeAiAnswer[1][i] = answerReturn[1][i] - 1;
                     rangeMin.append(rangeAiAnswer[0][i]).append(" ");
                     rangeMax.append(rangeAiAnswer[1][i]).append(" ");
@@ -54,28 +52,44 @@ public class SearchNumber extends Game {
     }
 
     @Override
-    public String[] compareAttemptAndSolution(int[][] solutionAndAttempt) {
+    public String compareSolutionAndAttempt(int[] solution,int[] answer) {
         String[] comparatorTable = new String[combinationDigitNumber];
         StringBuilder comparator = new StringBuilder();
-        String[] comparaisonReturn = new String[3];
         for (int i = 0; i < combinationDigitNumber; i++) {
-            if (solutionAndAttempt[1][i] == solutionAndAttempt[0][i]) {
+            if (answer[i] == solution[i]) {
                 comparatorTable[i] = "=";
-            } else if (solutionAndAttempt[1][i] < solutionAndAttempt[0][i]) {
+            } else if (answer[i] < solution[i]) {
                 comparatorTable[i] = "+";
             } else {
                 comparatorTable[i] = "-";
             }
             comparator.append(comparatorTable[i]);
         }
+        String comparaisonReturn = comparator.toString();
+        return comparaisonReturn;
+    }
+
+    @Override
+    public void displayIndications(String result){
         if (currentPlayer.ordinal() == 1) {
             System.out.print("    ");
         }
         System.out.print("      ->Réponse : ");
-        System.out.println(comparator.toString());
-        logger.info("Résultat : " + comparator);
-        comparaisonReturn[0] = comparator.toString();
-        return comparaisonReturn;
+        System.out.println(result);
+        logger.info("Résultat : " + result);
+    }
+
+    @Override
+    public boolean isGameWon(String result) {
+        StringBuilder winCondition = new StringBuilder();
+        for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
+            winCondition.append("=");
+        }
+        if (result.equals(winCondition.toString())){
+           return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
