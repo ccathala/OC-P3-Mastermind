@@ -12,7 +12,6 @@ public class Main {
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         String argument="";
-
         Options options = new Options();
         options.addOption("dev",false,"enable developer mode");
         try{

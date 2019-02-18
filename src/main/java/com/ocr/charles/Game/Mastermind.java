@@ -12,12 +12,16 @@ public class Mastermind extends Game {
 
     private int indexTable = 0;
     private int[][] scoreTable;
-    private LinkedList<int[]>propositionsList = new LinkedList<>();
+    private LinkedList<int[]> propositionsList = new LinkedList<>();
     private LinkedList<Integer> scoresList = new LinkedList<>();
     // liste construite par la recursion
-    private int[] liste = new int[combinationDigitNumber];
+    private int[] liste;
     private boolean initPropositionTable = false;
     private int[] optimizedProposition;
+    private int combinationNumber;
+    private int currentCombination = 1;
+    private int quotient = 0;
+    private int reste = 0;
 
 
     @Override
@@ -27,21 +31,47 @@ public class Mastermind extends Game {
 
     @Override
     public int[] generateAndDisplayAiAnswer(String result) {
+        StringBuilder displayAnswer = new StringBuilder();
         if (attemptNumber == 1) {
-            generateCombinationList(0);
-            return propositionsList.get(0);
-        }
-        else{
-            for (int i=1;i<propositionsList.size();i++){
-                String score = compareSolutionAndAttempt(propositionsList.get(0),propositionsList.get(i));
-                if(!score.equals(result)){
+            combinationNumber =(int) Math.pow(mastermindAllowedNumber, combinationDigitNumber);
+            int[] currentProposition = new int[combinationDigitNumber];
+            propositionsList.add(currentProposition);
+            /* generateCombinationList(0);*/
+        } else if (attemptNumber == 2) {
+            for (int j = 1; j < combinationNumber; j++) {
+                int[] resultat = new int[combinationDigitNumber];
+                for (int i = combinationDigitNumber - 1; i > -1; i--) {
+                    if (i == combinationDigitNumber - 1) {
+                        reste = currentCombination % mastermindAllowedNumber;
+                        quotient = currentCombination / mastermindAllowedNumber;
+                    } else {
+                        reste = quotient % mastermindAllowedNumber;
+                        quotient = quotient / mastermindAllowedNumber;
+                    }
+                    resultat[i] = reste;
+                }
+                String score = compareSolutionAndAttempt(propositionsList.get(0), resultat);
+                if (score.equals(result)) {
+                    propositionsList.add(resultat);
+                }
+                currentCombination = currentCombination + 1;
+            }
+            propositionsList.remove(0);
+        } else if (attemptNumber >= 3) {
+            for (int i = 1; i < propositionsList.size(); i++) {
+                String score = compareSolutionAndAttempt(propositionsList.get(0), propositionsList.get(i));
+                if (!score.equals(result)) {
                     propositionsList.remove(i);
-                    i=i-1;
+                    i = i - 1;
                 }
             }
             propositionsList.remove(0);
-            return propositionsList.get(0);
         }
+        for (int i = 0; i < combinationDigitNumber; i++) {
+            displayAnswer.append(propositionsList.get(0)[i]);
+        }
+        System.out.println(displayAnswer);
+        return propositionsList.get(0);
     }
 
     @Override
@@ -53,7 +83,7 @@ public class Mastermind extends Game {
     }
 
     @Override
-    public String compareSolutionAndAttempt(int[]solution, int[]answer) {
+    public String compareSolutionAndAttempt(int[] solution, int[] answer) {
         int numberWellplaced = 0;
         int numberInCombination = 0;
         int min = 0;
@@ -82,9 +112,9 @@ public class Mastermind extends Game {
     }
 
     @Override
-    public void displayIndications(String result){
-        int numberWellplaced = Integer.parseInt(result)/10;
-        int numberInCombination = Integer.parseInt(result) - numberWellplaced*10;
+    public void displayIndications(String result) {
+        int numberWellplaced = Integer.parseInt(result) / 10;
+        int numberInCombination = Integer.parseInt(result) - numberWellplaced * 10;
         System.out.print("->Réponse : ");
         if (numberWellplaced <= 1) {
             System.out.println(numberWellplaced + " chiffre bien placé.");
@@ -101,10 +131,10 @@ public class Mastermind extends Game {
     }
 
     @Override
-    public boolean isGameWon(String result){
-        if(Integer.parseInt(result)==combinationDigitNumber*10){
+    public boolean isGameWon(String result) {
+        if (Integer.parseInt(result) == combinationDigitNumber * 10) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -133,6 +163,12 @@ public class Mastermind extends Game {
     }
 
     /* IA MASTERMIND------------------------------------------------------------------------------------*/
+
+    @Override
+    public void initGame() {
+        super.initGame();
+        liste = new int[combinationDigitNumber];
+    }
 
     // construction recursive des listes possibles
     public void generateCombinationList(int index) {

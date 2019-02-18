@@ -321,7 +321,7 @@ public abstract class Game {
                 correctInput = true;
             } catch (PlayerInputError | NumberFormatException e) {
                 System.out.println();
-                System.out.println("Saisissez une combinaison à " + combinationDigitNumber + " chiffres");
+                System.out.println("Saisissez une combinaison à " + combinationDigitNumber + " chiffres.");
                 System.out.println();
                 System.out.println("----------------------------------");
                 System.out.print("Tentative joueur n°" + attemptNumber + " : ");
