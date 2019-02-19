@@ -14,7 +14,7 @@ import java.util.Scanner;
 public abstract class Game {
 
     static final Logger logger = LogManager.getLogger(Menu.class);
-
+    // Players list
     protected enum Player {
         Human,
         Ai;
@@ -27,32 +27,32 @@ public abstract class Game {
     protected Player currentPlayer = Player.Human;
     protected int combinationDigitNumber;
     protected int mastermindAllowedNumber;
-    private int attemptSetting;
+    protected boolean devMode = false;
+    protected int devModeFromConfig;
+    protected int attemptSetting;
     private int allowedAttempts;
     protected int attemptNumber;
     private boolean[] gameOver = new boolean[3];/*index 0 : is game over / index 1 : does player win*/
-    private boolean devMode = false;
+
 
 
     /**
      * Display game heading
      * Overrided method, display heading for both Game
      */
-    public void displayGameHeading() {
-
-    }
+    public abstract void displayGameHeading();
 
     /**
-     * Launch new game according to choosen game/mode
-     *
-     *
-     * @param args
+     * Launch new game
+     * @param args if equal "dev" set on dev mode which display AI secret combination for both challenger mode
      */
     public void newGame(String args) {
         int mode = 0;
+        // dev mode setting
         if (args.equals("dev")) {
             devMode = true;
         }
+        // Display mode menu
         while (mode != 4) {
             mode = DisplayAndChooseGameMode();
             gameOver[2]=true;
@@ -64,12 +64,14 @@ public abstract class Game {
                 initGame(); /* init game parameters */
                 boolean duelInitialized = false;
                 boolean duelAttempt = false; /* used for duel mode, increment attempt only if true */
-                while (!gameOver[0]) {
-                    attemptNumber = attemptSetting - allowedAttempts;
+                while (!gameOver[0]) { /*index 0 => game is over: true/false*/
+                    attemptNumber = attemptSetting - allowedAttempts; /*Set attempt number*/
+                    // init duel mode, each player choose combination, display welcome sentences
                     if (mode == 3 && !duelInitialized) {
                         duelInitialized = initDuelMode();
                         logger.info("Mode choisi : Duel");
                     }
+                    // Run mode sequence
                     int[][] returnMode = modeSequence(mode, currentPlayer, result[currentPlayer.ordinal()]);
                     int[] solution = returnMode[0];
                     int[] answer = returnMode[1];
@@ -77,22 +79,29 @@ public abstract class Game {
                     logger.info("Tour " + currentPlayer +" n°" + attemptNumber + " :");
                     logger.info("Solution : "+ returnModeSequenceForLogger(returnMode,0));
                     logger.info("Réponse : " + returnModeSequenceForLogger(returnMode,1));
+                    //Compare solution and answer
                     result[currentPlayer.ordinal()] = compareSolutionAndAttempt(solution,answer);
+                    //Display indications
                     displayIndications(result[currentPlayer.ordinal()]);
+                    //Analyse results
                     gameOver = analyseResults(isGameWon(result[currentPlayer.ordinal()]), mode, currentPlayer.toString());
+                    // Display results if game is over
                     if (gameOver[0]) {
                         displayResults(mode, gameOver[1]);
                     }
+                    //Increment attempt value for both mode
                     if (mode == 1 || mode == 2 || (mode == 3 && duelAttempt)) {
                         allowedAttempts = allowedAttempts - 1;
                         logger.info("Tentatives restantes : " + (allowedAttempts+1));
                     }
+                    //Switch player in duel mode
                     if (mode == 3) {
                         switchPlayer();
                         duelAttempt = !duelAttempt;
                         logger.info("Prochain joueur : " + currentPlayer);
                     }
                 }
+                // Display end game menu
                 gameOver[2] = displayNewGameOrMainMenuAndRecordInputPlayerFor();
             }
         }
@@ -103,25 +112,14 @@ public abstract class Game {
 
     /**
      * Init new game parameters
-     *
-     *
      */
     public void initGame() {
-        int[] parameters = importParameterFromConfigProperties(); /*load parameters from config.properties*/
-        combinationDigitNumber = parameters[0];
-        mastermindAllowedNumber = parameters[3];
-        attemptSetting = parameters[1];
-        allowedAttempts = parameters[1] - 1;
+        allowedAttempts = attemptSetting - 1;
         solutionReturn = new int[2][combinationDigitNumber];
         answerReturn = new int[2][combinationDigitNumber];
         gameOver[0] = false;
         gameOver[1] = false;
-        rangeAiAnswer = new int[2][combinationDigitNumber];
-        for (int i = 0; i < combinationDigitNumber; i++) { /* init range for defender sequence */
-            rangeAiAnswer[0][i] = 0;
-            rangeAiAnswer[1][i] = 9;
-        }
-        if (parameters[2] == 1) {
+        if (devModeFromConfig == 1) {
             devMode = true;
         }
         if (devMode){
@@ -129,21 +127,12 @@ public abstract class Game {
             System.out.println();
         }
         logger.info("-----------------------Resume init-----------------------");
+        logger.info("Développeur mode : " + devMode);
         logger.info("Nombre de digits : "+ combinationDigitNumber);
         logger.info("Tentatives autorisées : " + attemptSetting);
         logger.info("Tentatives autorisées -1 : " + allowedAttempts);
         logger.info("Partie terminée : " + gameOver[0]);
         logger.info("Joueur gagne : " + gameOver[1]);
-        StringBuilder rangeMin= new StringBuilder();
-        StringBuilder rangeMax= new StringBuilder();
-        for(int i=0;i<combinationDigitNumber;i++){
-            rangeMin.append(rangeAiAnswer[0][i]).append(" ");
-            rangeMax.append(rangeAiAnswer[1][i]).append(" ");
-        }
-        logger.info("Range min: " + rangeMin);
-        logger.info("Range max: " + rangeMax);
-        logger.info("Développeur mode : " + devMode);
-        logger.info("--------------------Fin resume init----------------------");
     }
 
 
@@ -155,26 +144,24 @@ public abstract class Game {
     /*---------------------------------------------------------------------------------------------------------------------*/
 
     /**
-     * Define the throwing conditions for PlayerInputError exception when player have to choose a mode
-     *
-     * @param choosenMode
-     * @throws PlayerInputError
+     * Define throwing conditions for PlayerInputError exception when player have to choose a mode
+     * @param chosenMode mode menu choice made by user
+     * @throws PlayerInputError Exception display message when user input error
      */
-    public void playerChooseCorrectGameModeOption(int choosenMode) throws PlayerInputError {
-        if (choosenMode < 1 || choosenMode > 4) throw new PlayerInputError();
+    private void playerChooseCorrectGameModeOption(int chosenMode) throws PlayerInputError {
+        if (chosenMode < 1 || chosenMode > 4) throw new PlayerInputError();
     }
 
     /**
-     * Display mode menu and record player input for the mode choice
-     *
-     * @param
+     * Display mode menu and record player input for chosen mode
+     * return int to set variable "mode" of newGame method
      */
-    public int DisplayAndChooseGameMode() {
+    private int DisplayAndChooseGameMode() {
         int mode = 0;
         Scanner sc = new Scanner(System.in);
         boolean correctInput;
         do {
-            displayGameHeading();
+            displayGameHeading(); /*Display game heading for both game*/
             System.out.println();
             System.out.println("Choisi ton mode de jeu");
             System.out.println("1 - Mode Challenger");
@@ -182,8 +169,8 @@ public abstract class Game {
             System.out.println("3 - Mode Duel");
             System.out.println("4 - Retour au menu principal");
             try {
-                mode = sc.nextInt();
-                playerChooseCorrectGameModeOption(mode);
+                mode = sc.nextInt(); /*Record user input for mode choice*/
+                playerChooseCorrectGameModeOption(mode); /*Set throwing conditions of the exception*/
                 correctInput = true;
             } catch (InputMismatchException e) {
                 sc.next();
@@ -192,12 +179,12 @@ public abstract class Game {
                 logger.info("Erreur saisie utilisateur");
                 correctInput = false;
             } catch (PlayerInputError e) {
-                System.out.println("Choisissez parmi les choix proposés.");
+                System.out.println("Vous n'avez pas choisi parmi les choix proposés.");
                 System.out.println();
                 logger.info("Erreur saisie utilisateur");
                 correctInput = false;
             }
-        } while (!correctInput);
+        } while (!correctInput); /*Repeat instructions until user input is correct*/
         if (mode==4){
             logger.info("Retour menu choix du jeu");
         }
@@ -210,16 +197,13 @@ public abstract class Game {
 
     /**
      * Import parameters from file config.properties
-     *
-     *
-     *                    importedValues[0] rules the number of digits of the secret combination
-     *                    importedValues[1] rules the amount of allowed attempts
-     * @return imported values
+     *importedValues[0] rules the number of digits of the secret combination
+     *importedValues[1] rules the amount of allowed attempts
      */
-    protected abstract int[] importParameterFromConfigProperties();
+    protected abstract void importParameterFromConfigProperties();
 
 
-    public int[][] modeSequence(int choosenMode, Player currentPlayer, String result) {
+    private int[][] modeSequence(int choosenMode, Player currentPlayer, String result) {
         if (choosenMode == 1 || (choosenMode == 3 && currentPlayer.ordinal() == 0)) {
             return challengerSequence(choosenMode);
         } else if (choosenMode == 2 || (choosenMode == 3 && currentPlayer.ordinal() == 1)) {
@@ -231,7 +215,7 @@ public abstract class Game {
     /*Challenger Sequence--------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public int[][] challengerSequence(int choosenMode) {
+    private int[][] challengerSequence(int choosenMode) {
         if (attemptNumber == 1 && choosenMode != 3) {
             currentPlayer = Player.Human;
             System.out.println("Bienvenue Challenger !");
@@ -252,7 +236,7 @@ public abstract class Game {
     /**
      * AI choose a random combination composed by X digits between 0 and 9
      */
-    protected int[] aiChooseRandomCombination() {
+    private int[] aiChooseRandomCombination() {
         int[] aiHiddenCombination = new int[combinationDigitNumber];
         StringBuilder aiHiddenCombinationString = new StringBuilder();
         for (int i = 0; i < combinationDigitNumber; i++) {
@@ -274,7 +258,7 @@ public abstract class Game {
     /*Defender Sequence----------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public int[][] defenderSequence(String result, int choosenMode) {
+    private int[][] defenderSequence(String result, int choosenMode) {
         if (attemptNumber == 1 && choosenMode != 3) {
             currentPlayer = Player.Ai;
             System.out.println("Bienvenue Défenseur !");
@@ -292,7 +276,7 @@ public abstract class Game {
         return defenderReturn;
     }
 
-    public abstract int[] generateAndDisplayAiAnswer(String result);
+    protected abstract int[] generateAndDisplayAiAnswer(String result);
 
     /*---------------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
@@ -306,7 +290,7 @@ public abstract class Game {
      * Record player input combination composed by X digits between 0 and 9
      * Increment by 1 the value of attempNumberPlayer
      */
-    protected int[] recordPlayerCombinationInput() {
+    private int[] recordPlayerCombinationInput() {
         boolean correctInput;
         int[] playerCombinationInput = new int[combinationDigitNumber];
         do {
@@ -341,10 +325,8 @@ public abstract class Game {
 
     /**
      * Initialize duel mode by display welcome sentence, instructions and recording hidden combination for bot players
-     *
-     * @return
      */
-    protected boolean initDuelMode() {
+    private boolean initDuelMode() {
         System.out.println("C'est l'heure du Duel! Trouvez la combinaison secrète en " + attemptSetting + " tentatives.");
         System.out.println();
         System.out.println("Joueur choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
@@ -356,10 +338,8 @@ public abstract class Game {
 
     /**
      * Do a toss to define the first player
-     *
-     * @return
      */
-    protected String toss() {
+    private String toss() {
         Random random = new Random();
         int toss = random.nextInt(2);
         String currentPlayer;
@@ -379,7 +359,7 @@ public abstract class Game {
     /**
      * Switch player turn for duel mode
      */
-    protected void switchPlayer() {
+    private void switchPlayer() {
         if (currentPlayer.toString().equals("Human")) {
             currentPlayer = Player.Ai;
         } else {
@@ -393,27 +373,27 @@ public abstract class Game {
     /* Compare, analyze, display result------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------------*/
 
-    public abstract String compareSolutionAndAttempt(int[] solution, int[] answer);
+    protected abstract String compareSolutionAndAttempt(int[] solution, int[] answer);
 
-    public abstract void displayIndications(String result);
+    protected abstract void displayIndications(String result);
 
-    public abstract boolean isGameWon(String result);
+    protected abstract boolean isGameWon(String result);
 
     /**
      * Analyze results and end the game if win condition is true
      *
-     * @param choosenMode
+     * @param chosenMode
      * @param currentPlayer
      * @return boolean gameOver = true if game is ended
      */
-    protected boolean[] analyseResults(boolean isGameWon, int choosenMode, String currentPlayer) {
+    private boolean[] analyseResults(boolean isGameWon, int chosenMode, String currentPlayer) {
         if (isGameWon) {
             gameOver[0] = true;
-            if (choosenMode == 1) {
+            if (chosenMode == 1) {
                 gameOver[1] = true;
-            } else if (choosenMode == 2) {
+            } else if (chosenMode == 2) {
                 gameOver[1] = false;
-            } else if (choosenMode == 3) {
+            } else if (chosenMode == 3) {
                 if (currentPlayer.equals("Human")) {
                     gameOver[1] = true;
                 } else {
@@ -422,11 +402,11 @@ public abstract class Game {
             }
         } else if (allowedAttempts == 0) {
             gameOver[0] = true;
-            if (choosenMode == 1) {
+            if (chosenMode == 1) {
                 gameOver[1] = false;
-            } else if (choosenMode == 2) {
+            } else if (chosenMode == 2) {
                 gameOver[1] = true;
-            } else if (choosenMode == 3) {
+            } else if (chosenMode == 3) {
                 if (currentPlayer.equals("Human")) {
                     gameOver[1] = false;
                 } else {
@@ -445,7 +425,7 @@ public abstract class Game {
      * @param choosenMode
      * @param playerWin
      */
-    protected void displayResults(int choosenMode, boolean playerWin) {
+    private void displayResults(int choosenMode, boolean playerWin) {
         StringBuilder answer = new StringBuilder();
         if (playerWin) {
 
@@ -493,7 +473,7 @@ public abstract class Game {
      * @param choice
      * @throws PlayerInputError
      */
-    public void playerChooseCorrectNewGameOption(int choice) throws PlayerInputError {
+    private void playerChooseCorrectNewGameOption(int choice) throws PlayerInputError {
         if (choice < 1 || choice > 3) throw new PlayerInputError();
     }
 
@@ -502,7 +482,7 @@ public abstract class Game {
      *
      * @return
      */
-    protected boolean displayNewGameOrMainMenuAndRecordInputPlayerFor() {
+    private boolean displayNewGameOrMainMenuAndRecordInputPlayerFor() {
         Scanner sc = new Scanner(System.in);
         boolean newGame = false;
         boolean correctInput;
@@ -549,7 +529,7 @@ public abstract class Game {
     /*---------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------*/
 
-        public String returnModeSequenceForLogger(int[][]modeSequence, int solutionOrAnswerIndex){
+        private String returnModeSequenceForLogger(int[][]modeSequence, int solutionOrAnswerIndex){
             String[] returnModeValues = new String[2];
             StringBuilder solution = new StringBuilder();
             StringBuilder answer = new StringBuilder();

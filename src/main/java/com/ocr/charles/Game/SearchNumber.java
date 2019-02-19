@@ -3,14 +3,35 @@ package com.ocr.charles.Game;
 import com.ocr.charles.Exceptions.PlayerInputError;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Random;
 
 public class SearchNumber extends Game {
 
+
     @Override
     public void displayGameHeading() {
         System.out.println("----------[Recherche +/-]----------");
+    }
+
+    @Override
+    public void initGame(){
+        super.initGame();
+        rangeAiAnswer = new int[2][combinationDigitNumber];
+        for (int i = 0; i < combinationDigitNumber; i++) { /* init range for defender sequence */
+            rangeAiAnswer[0][i] = 0;
+            rangeAiAnswer[1][i] = 9;
+        }
+        StringBuilder rangeMin= new StringBuilder();
+        StringBuilder rangeMax= new StringBuilder();
+        for(int i=0;i<combinationDigitNumber;i++){
+            rangeMin.append(rangeAiAnswer[0][i]).append(" ");
+            rangeMax.append(rangeAiAnswer[1][i]).append(" ");
+        }
+        logger.info("Range min: " + rangeMin);
+        logger.info("Range max: " + rangeMax);
+        logger.info("--------------------Fin resume init----------------------");
     }
 
     @Override
@@ -65,8 +86,7 @@ public class SearchNumber extends Game {
             }
             comparator.append(comparatorTable[i]);
         }
-        String comparaisonReturn = comparator.toString();
-        return comparaisonReturn;
+        return comparator.toString();
     }
 
     @Override
@@ -85,11 +105,7 @@ public class SearchNumber extends Game {
         for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
             winCondition.append("=");
         }
-        if (result.equals(winCondition.toString())){
-           return true;
-        }else{
-            return false;
-        }
+        return result.equals(winCondition.toString());
     }
 
     @Override
@@ -98,19 +114,16 @@ public class SearchNumber extends Game {
     }
 
     @Override
-    protected int[] importParameterFromConfigProperties() {
-
+    public void importParameterFromConfigProperties() {
         Properties properties = new Properties();
-        int[] importedValues = new int[4];
         try {
-            properties.load(Game.class.getClassLoader().getResourceAsStream("config.properties"));
+            properties.load(Objects.requireNonNull(Game.class.getClassLoader().getResourceAsStream("config.properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        importedValues[0] = Integer.parseInt(properties.getProperty("researchNumberCombinationDigitNumber"));
-        importedValues[1] = Integer.parseInt(properties.getProperty("researchNumberAllowedAttempts"));
-        importedValues[2] = Integer.parseInt(properties.getProperty("devMode"));
-        return importedValues;
+        combinationDigitNumber = Integer.parseInt(properties.getProperty("researchNumberCombinationDigitNumber"));
+        attemptSetting = Integer.parseInt(properties.getProperty("researchNumberAllowedAttempts"));
+        devModeFromConfig = Integer.parseInt(properties.getProperty("devMode"));
     }
 
     @Override
