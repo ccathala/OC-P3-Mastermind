@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class SearchNumber extends Game {
 
+    private int[][] rangeAiAnswer;
 
     @Override
     public void displayGameHeading() {
@@ -32,6 +33,22 @@ public class SearchNumber extends Game {
         logger.info("Range min: " + rangeMin);
         logger.info("Range max: " + rangeMax);
         logger.info("--------------------Fin resume init----------------------");
+    }
+
+    @Override
+    protected void displayInstruction(String gameMode){
+        switch (gameMode) {
+            case "challenger":
+                System.out.print("Trouve la");
+                break;
+            case "defender":
+                System.out.print("Choisi une");
+                break;
+            case "duel":
+                System.out.print("Joueur, choisi une");
+                break;
+        }
+        System.out.println(" combinaison cachée à " + combinationDigitNumber + " chiffres.");
     }
 
     @Override
@@ -110,8 +127,17 @@ public class SearchNumber extends Game {
 
     @Override
     protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
-        if (playerInput.length != combinationDigitNumber) throw new PlayerInputError();
+        if (playerInput.length != combinationDigitNumber){
+            throw new PlayerInputError();
+        }
     }
+
+    @Override
+    protected void errorSentence(){
+        System.out.println("Erreur de saisie - Veuillez saisir une combinaison composée de " + combinationDigitNumber + " chiffres.");
+    }
+
+
 
     @Override
     public void importParameterFromConfigProperties() {

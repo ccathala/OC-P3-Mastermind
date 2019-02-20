@@ -1,7 +1,8 @@
 package com.ocr.charles.Game;
-
-
 import com.ocr.charles.Exceptions.PlayerInputError;
+import com.ocr.charles.Menu;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.*;
@@ -9,18 +10,25 @@ import java.util.*;
 
 public class Mastermind extends Game {
 
+    final Logger logger = LogManager.getLogger(Menu.class);
 
-    private LinkedList<int[]> propositionsList = new LinkedList<>();
+    private int mastermindAllowedNumber;
+    private LinkedList<int[]> propositionsList;
     private int combinationNumber; /* Number of possible combinations*/
-    private int currentCombination = 1;
+    private int currentCombination;
     private int quotient = 0;
 
-
+    /**
+     * Display MastermindLevel heading
+     */
     @Override
     public void displayGameHeading() {
         System.out.println("----------[Mastermind]----------");
     }
 
+    /**
+     * Initialize MastermindLevel parameters
+     */
     @Override
     public void initGame(){
         super.initGame();
@@ -29,9 +37,32 @@ public class Mastermind extends Game {
     }
 
     @Override
+    protected void displayInstruction(String gameMode){
+        switch (gameMode) {
+            case "challenger":
+                System.out.print("Trouve la");
+                break;
+            case "defender":
+                System.out.print("Choisi une");
+                break;
+            case "duel":
+                System.out.print("Joueur, choisi une");
+                break;
+        }
+        System.out.println(" combinaison cachée à " + combinationDigitNumber + " chiffres compris entre 0 et "
+                + (mastermindAllowedNumber-1) + ".");
+    }
+
+    /**
+     * @param result value from compareSolutionAndAttempt method for previous attempt
+     * @return answer formatted in int[combinationDigitNumber]
+     */
+    @Override
     public int[] generateAndDisplayAiAnswer(String result) {
         StringBuilder displayAnswer = new StringBuilder();
         if (attemptNumber == 1) {
+            currentCombination=1;
+            propositionsList=new LinkedList<>();
             combinationNumber =(int) Math.pow(mastermindAllowedNumber, combinationDigitNumber);
             int[] currentProposition = new int[combinationDigitNumber];
             propositionsList.add(currentProposition);
@@ -66,6 +97,9 @@ public class Mastermind extends Game {
             }
             propositionsList.remove(0);
         }
+
+        //System.out.println(Arrays.toString(propositionsList.get(0)));
+
         for (int i = 0; i < combinationDigitNumber; i++) {
             displayAnswer.append(propositionsList.get(0)[i]);
         }
@@ -73,14 +107,35 @@ public class Mastermind extends Game {
         return propositionsList.get(0);
     }
 
+    /**
+     *
+     * @param playerInput Player input splitted in String[]
+     * @throws PlayerInputError Exception display message when incorrect input
+     */
     @Override
     protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
-        if (playerInput.length != combinationDigitNumber) throw new PlayerInputError();
+        if (playerInput.length != combinationDigitNumber) {
+            throw new PlayerInputError();
+        }
         for (int i = 0; i < combinationDigitNumber; i++) {
-            if (Integer.parseInt(playerInput[i]) > (mastermindAllowedNumber - 1)) throw new PlayerInputError();
+            if (Integer.parseInt(playerInput[i]) > (mastermindAllowedNumber - 1)){
+                throw new PlayerInputError();
+            }
         }
     }
 
+    @Override
+    protected void errorSentence(){
+        System.out.println("Erreur de saisie - Veuillez saisir une combinaison composée de " + combinationDigitNumber +
+                " chiffres compris entre 0 et " + (mastermindAllowedNumber-1) + ".");
+    }
+
+    /**
+     *
+     * @param solution current solution formatted in int[combinationDigitNumber]
+     * @param answer generated answer formatted in int[combinationDigitNumber]
+     * @return
+     */
     @Override
     public String compareSolutionAndAttempt(int[] solution, int[] answer) {
         int numberWellplaced = 0;
@@ -110,6 +165,10 @@ public class Mastermind extends Game {
         return String.valueOf((numberWellplaced * 10) + numberInCombination);
     }
 
+    /**
+     *
+     * @param result from compareSolutionAndAttempt
+     */
     @Override
     public void displayIndications(String result) {
         int numberWellplaced = Integer.parseInt(result) / 10;
@@ -129,12 +188,19 @@ public class Mastermind extends Game {
         logger.info("Chiffres présents, mal placés : " + numberInCombination);
     }
 
+    /**
+     *
+     * @param result from compareSolutionAndAttempt
+     * @return
+     */
     @Override
     public boolean isGameWon(String result) {
         return Integer.parseInt(result) == combinationDigitNumber * 10;
     }
 
-
+    /**
+     *
+     */
     @Override
     public void importParameterFromConfigProperties() {
         Properties properties = new Properties();
@@ -149,6 +215,10 @@ public class Mastermind extends Game {
         devModeFromConfig = Integer.parseInt(properties.getProperty("devMode"));
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected int randomNumber() {
         Random random = new Random();

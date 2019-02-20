@@ -37,7 +37,7 @@ public class GameTest {
         Mastermind search = new Mastermind();
         search.displayGameHeading();
         String[] output = outContent.toString().replace("\r\n", "\n").split("\n");
-        assertEquals("----------[Mastermind]----------", output[0]);
+        assertEquals("----------[MastermindLevel]----------", output[0]);
     }
 
 }

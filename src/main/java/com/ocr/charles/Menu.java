@@ -14,12 +14,12 @@ import java.util.Scanner;
 
 public class Menu {
 
-    static final Logger logger = LogManager.getLogger(Menu.class);
+    private static final Logger logger = LogManager.getLogger(Menu.class);
 
     /**
      * Display game menu choice
      */
-    public void displayGameMenu() {
+    private void displayGameMenu() {
         System.out.println("Bienvenue joueur, choisi ton jeu");
         System.out.println("1 - Recherche +/-");
         System.out.println("2 - Mastermind");
@@ -28,18 +28,18 @@ public class Menu {
 
     /**
      * Define the throwing conditions for PlayerInputError exception when player have to choose a game
-     * @param choosenGame
-     * @throws PlayerInputError
+     * @param chosenGame user input of choosen game
+     * @throws PlayerInputError Exception throws message if input error
      */
-    public void playerChooseCorrectGameOption(int choosenGame) throws PlayerInputError {
-        if (choosenGame < 1 || choosenGame > 3) throw new PlayerInputError();
+    private void playerChooseCorrectGameOption(int chosenGame) throws PlayerInputError {
+        if (chosenGame < 1 || chosenGame > 3) throw new PlayerInputError();
     }
 
     /**
      * Record player input for the game choice
      * @param args
      */
-    public void GameChoice(String args) {
+    protected void GameChoice(String args) {
         boolean quitGame = true;
         while (quitGame) {
             boolean correctInput;
@@ -71,7 +71,7 @@ public class Menu {
                 search.newGame(args);
 
             } else if(game == 2){
-                logger.info("Jeu choisi  : Mastermind");
+                logger.info("Jeu choisi  : MastermindLevel");
                 Mastermind mastermind = new Mastermind();
                 mastermind.importParameterFromConfigProperties();
                 mastermind.newGame(args);
