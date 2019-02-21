@@ -32,6 +32,9 @@ public abstract class Game {
     protected int attemptNumber; /* Value of the current attempt*/
     private boolean[] gameOver = new boolean[3];/*index 0 : is game over / index 1 : does player win*/
 
+    public int getAttemptNumber() {
+        return attemptNumber;
+    }
 
     /**
      * Display game heading
@@ -184,9 +187,9 @@ public abstract class Game {
     protected abstract void importParameterFromConfigProperties();
 
     /**
-     * @param chosenMode user input
+     * @param chosenMode    user input
      * @param currentPlayer AI or HUMAN
-     * @param result value from compareSolutionAndAttempt method for previous attempt
+     * @param result        value from compareSolutionAndAttempt method for previous attempt
      * @return int[] solution and int[] answer
      */
     private int[][] modeSequence(int chosenMode, Player currentPlayer, String result) {
@@ -211,6 +214,7 @@ public abstract class Game {
             System.out.println();
             System.out.println("Le décodeur dispose de " + attemptSetting + " tentatives pour trouver la combinaison cachée.");
             solutionReturn[1] = aiChooseRandomCombination();/*Record hidden combination*/
+            displayDevmode(solutionReturn[1]);
             logger.info("Mode choisi : Challenger");
         }
         System.out.println("----------------------------------");
@@ -227,18 +231,25 @@ public abstract class Game {
     /**
      * AI choose a random combination composed by X digits between 0 and 9
      */
-    private int[] aiChooseRandomCombination() {
+    protected int[] aiChooseRandomCombination() {
         int[] aiHiddenCombination = new int[combinationDigitNumber];
         StringBuilder aiHiddenCombinationString = new StringBuilder();
         for (int i = 0; i < combinationDigitNumber; i++) {
             aiHiddenCombination[i] = randomNumber();
             aiHiddenCombinationString.append(aiHiddenCombination[i]);
         }
+        return aiHiddenCombination;
+    }
+
+    protected void displayDevmode(int[] hiddenCombination){
         if (devMode) {
-            System.out.print("Combinaison secrète : " + aiHiddenCombinationString);
+            StringBuilder displayCombination = new StringBuilder();
+            for (int i =0;i<combinationDigitNumber;i++){
+                displayCombination.append(hiddenCombination[i]);
+            }
+            System.out.print("Combinaison secrète : " + displayCombination);
         }
         System.out.println();
-        return aiHiddenCombination;
     }
 
     /**
@@ -247,7 +258,7 @@ public abstract class Game {
     protected abstract int randomNumber();
 
     /**
-     * @param result value from compareSolutionAndAttempt method for previous attempt
+     * @param result     value from compareSolutionAndAttempt method for previous attempt
      * @param chosenMode user input
      * @return int[] solution and int[] answer
      */
@@ -302,14 +313,14 @@ public abstract class Game {
                     playerCombinationInput[i] = Integer.parseInt(playerCombinationInputString[i]);
                 }
                 correctInput = true;
-            } catch (PlayerInputError|NumberFormatException e) {
+            } catch (PlayerInputError | NumberFormatException e) {
                 errorSentence();
-                if(currentPlayer.ordinal()==0) {
+                if (currentPlayer.ordinal() == 0) {
                     System.out.println("----------------------------------");
                     System.out.print("Tour joueur n°" + attemptNumber + " : ");
                 }
                 correctInput = false;
-                }
+            }
         } while (!correctInput);
         return playerCombinationInput;
     }
@@ -318,7 +329,7 @@ public abstract class Game {
      * Initialize duel mode by display welcome sentence, instructions and recording hidden combination for bot players
      */
     private boolean initDuelMode() {
-        currentPlayer=Player.Ai;
+        currentPlayer = Player.Ai;
         System.out.println("C'est l'heure du Duel! Trouvez la combinaison secrète en " + attemptSetting + " tentatives.");
         System.out.println();
         System.out.println("Joueur, choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
@@ -361,7 +372,7 @@ public abstract class Game {
 
     /**
      * @param solution current solution formatted in int[combinationDigitNumber]
-     * @param answer generated answer formatted in int[combinationDigitNumber]
+     * @param answer   generated answer formatted in int[combinationDigitNumber]
      * @return comparaison result format: "++-==-" or score format ex: "40"
      */
     protected abstract String compareSolutionAndAttempt(int[] solution, int[] answer);
