@@ -184,7 +184,7 @@ public abstract class Game {
     /**
      * Import parameters from file config.properties
      */
-    protected abstract void importParameterFromConfigProperties();
+    public abstract void importParameterFromConfigProperties();
 
     /**
      * @param chosenMode    user input
@@ -198,6 +198,7 @@ public abstract class Game {
         } else if (chosenMode == 2 || (chosenMode == 3 && currentPlayer.ordinal() == 1)) {
             return defenderSequence(result, chosenMode);
         }
+        logger.error("");
         return new int[2][4];
     }
 

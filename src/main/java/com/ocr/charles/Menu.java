@@ -1,6 +1,7 @@
 package com.ocr.charles;
 
 import com.ocr.charles.Exceptions.PlayerInputError;
+import com.ocr.charles.Game.Game;
 import com.ocr.charles.Game.Mastermind;
 import com.ocr.charles.Game.SearchNumber;
 import org.apache.logging.log4j.Logger;
@@ -64,24 +65,22 @@ public class Menu {
                     correctInput = false;
                 }
             } while (!correctInput);
+            Game currentGame=null;
             if (game == 1) {
                 logger.info("Jeu choisi : SearchNumber");
-                SearchNumber search = new SearchNumber();
-                search.importParameterFromConfigProperties();
-                search.newGame(args);
-
+                currentGame= new SearchNumber();
             } else if(game == 2){
                 logger.info("Jeu choisi  : MastermindLevel");
-                Mastermind mastermind = new Mastermind();
-                mastermind.importParameterFromConfigProperties();
-                mastermind.newGame(args);
-
+                currentGame = new Mastermind();
             }else if (game == 3) {
-
                 logger.info("--------------FERMETURE DE L'APPLICATION-----------------");
                 logger.info("---------------------------------------------------------");
                 quitGame = false;
+                break;
             }
+            //noinspection ConstantConditions
+            currentGame.importParameterFromConfigProperties();
+            currentGame.newGame(args);
         }
     }
 
