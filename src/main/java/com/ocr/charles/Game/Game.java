@@ -32,19 +32,14 @@ public abstract class Game {
     protected int attemptNumber; /* Value of the current attempt*/
     private boolean[] gameOver = new boolean[3];/*index 0 : is game over / index 1 : does player win*/
 
-    public int getAttemptNumber() {
-        return attemptNumber;
-    }
 
     /**
      * Display game heading
-     * Overrided method, display heading for both Game
      */
     public abstract void displayGameHeading();
 
     /**
      * Launch new game
-     *
      * @param args if equal "dev" set on dev mode which display AI secret combination for both challenger mode
      */
     public void newGame(String args) {
@@ -78,7 +73,7 @@ public abstract class Game {
                     logger.info("Solution : " + Arrays.toString(solution));
                     logger.info("Réponse : " + Arrays.toString(answer));
                     //Compare solution and answer
-                    result[currentPlayer.ordinal()] = compareSolutionAndAttempt(solution, answer);
+                    result[currentPlayer.ordinal()] = compareSolutionAndAnswer(solution, answer);
                     //Display indications
                     displayIndications(result[currentPlayer.ordinal()]);
                     //Analyse results
@@ -132,8 +127,7 @@ public abstract class Game {
     }
 
     /**
-     * Define throwing conditions for PlayerInputError exception when player have to choose a mode
-     *
+     * Set throwing conditions for PlayerInputError exception for mode choice
      * @param chosenMode mode menu choice made by user
      * @throws PlayerInputError Exception display message when user input error
      */
@@ -187,9 +181,9 @@ public abstract class Game {
     public abstract void importParameterFromConfigProperties();
 
     /**
-     * @param chosenMode    user input
+     * @param chosenMode user input
      * @param currentPlayer AI or HUMAN
-     * @param result        value from compareSolutionAndAttempt method for previous attempt
+     * @param result value from compareSolutionAndAttempt method for previous attempt
      * @return int[] solution and int[] answer
      */
     private int[][] modeSequence(int chosenMode, Player currentPlayer, String result) {
@@ -202,10 +196,12 @@ public abstract class Game {
     }
 
     /**
+     * Run challenger sequence
      * @param chosenMode user input
      * @return int[] solution and int[] answer
      */
     private int[][] challengerSequence(int chosenMode) {
+        //Only attempt 1: display instruction sentence, record AI hidden combination
         if (attemptNumber == 1 && chosenMode != 3) {
             currentPlayer = Player.Human;
             System.out.println("Bienvenue Challenger !");
@@ -217,6 +213,7 @@ public abstract class Game {
             displayDevmode(solutionReturn[1]);
             logger.info("Mode choisi : Challenger");
         }
+        // Display turn template, record player answer
         System.out.println("----------------------------------");
         System.out.print("Tour joueur n°" + attemptNumber + " : ");
         int[][] challengerReturn = new int[2][combinationDigitNumber];
@@ -226,22 +223,28 @@ public abstract class Game {
         return challengerReturn;
     }
 
+    /**
+     * Display mode instructions
+     * @param gameMode challenger, defender, duel
+     */
     protected abstract void displayInstruction(String gameMode);
 
     /**
-     * AI choose a random combination composed by X digits between 0 and 9
+     * AI choose a random X digits combination
      */
     protected int[] aiChooseRandomCombination() {
         int[] aiHiddenCombination = new int[combinationDigitNumber];
-        StringBuilder aiHiddenCombinationString = new StringBuilder();
         for (int i = 0; i < combinationDigitNumber; i++) {
             aiHiddenCombination[i] = randomNumber();
-            aiHiddenCombinationString.append(aiHiddenCombination[i]);
         }
         return aiHiddenCombination;
     }
 
-    protected void displayDevmode(int[] hiddenCombination){
+    /**
+     * Challenger and duel mode, display hidden combination if dev mode is enabled
+     * @param hiddenCombination  value from AiHiddenCombination
+     */
+    private void displayDevmode(int[] hiddenCombination){
         if (devMode) {
             StringBuilder displayCombination = new StringBuilder();
             for (int i =0;i<combinationDigitNumber;i++){
@@ -253,16 +256,20 @@ public abstract class Game {
     }
 
     /**
-     * @return random int from 0 to 9
+     * Return random int
+     * @return random int from 0 to 9 for research number
+     *         random int from 0 to base setting for mastermind
      */
     protected abstract int randomNumber();
 
     /**
+     * Run defender sequence
      * @param result     value from compareSolutionAndAttempt method for previous attempt
      * @param chosenMode user input
      * @return int[] solution and int[] answer
      */
     private int[][] defenderSequence(String result, int chosenMode) {
+        // Only attempt 1: display instruction sentence, record player hidden combination
         if (attemptNumber == 1 && chosenMode != 3) {
             currentPlayer = Player.Ai;
             System.out.println("Bienvenue Défenseur !");
@@ -273,6 +280,7 @@ public abstract class Game {
             System.out.println("Le décodeur dispose de " + attemptSetting + " tentatives pour trouver la combinaison cachée.");
             logger.info("Mode choisi : Defender");
         }
+        // Display turn template, record AI answer
         System.out.println("----------------------------------");
         System.out.print("Tour ordinateur n°" + attemptNumber + " : ");
         int[][] defenderReturn = new int[2][combinationDigitNumber];
@@ -283,22 +291,26 @@ public abstract class Game {
     }
 
     /**
+     * Generate and display AI answer for both game
      * @param result value from compareSolutionAndAttempt method for previous attempt
      * @return int[] answer
      */
     protected abstract int[] generateAndDisplayAiAnswer(String result);
 
     /**
+     * Set throwing conditions for PlayerInputError exception for combination input
      * @param playerInput Player input splitted in String[]
      * @throws PlayerInputError Exception display message when incorrect input
      */
     protected abstract void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError;
 
+    /**
+     * Display error sentence if incorrect player input
+     */
     protected abstract void errorSentence();
 
     /**
-     * Record player input combination composed by X digits between 0 and 9
-     * Increment by 1 the value of attempNumberPlayer
+     * Record player input combination
      */
     private int[] recordPlayerCombinationInput() {
         boolean correctInput;
@@ -326,11 +338,12 @@ public abstract class Game {
     }
 
     /**
-     * Initialize duel mode by display welcome sentence, instructions and recording hidden combination for bot players
+     * Initialize duel mode,
+     * display welcome sentence, instructions and recording hidden combination for bot players, do a toss
      */
     private boolean initDuelMode() {
         currentPlayer = Player.Ai;
-        System.out.println("C'est l'heure du Duel! Trouvez la combinaison secrète en " + attemptSetting + " tentatives.");
+        System.out.println("C'est l'heure du Duel! Trouvez la combinaison secrète avant l'ordinateur en " + attemptSetting + " tentatives.");
         System.out.println();
         System.out.println("Joueur, choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
         solutionReturn[0] = recordPlayerCombinationInput();/*Record player hidden combination*/
@@ -340,7 +353,7 @@ public abstract class Game {
     }
 
     /**
-     * Do a toss to define the first player
+     * Do a toss to define randomly the first player
      */
     private String toss() {
         Random random = new Random();
@@ -371,27 +384,29 @@ public abstract class Game {
     }
 
     /**
+     * Compare solution and answer
      * @param solution current solution formatted in int[combinationDigitNumber]
-     * @param answer   generated answer formatted in int[combinationDigitNumber]
-     * @return comparaison result format: "++-==-" or score format ex: "40"
+     * @param answer generated answer formatted in int[combinationDigitNumber]
+     * @return comparison result
      */
-    protected abstract String compareSolutionAndAttempt(int[] solution, int[] answer);
+    protected abstract String compareSolutionAndAnswer(int[] solution, int[] answer);
 
     /**
-     * @param result from compareSolutionAndAttempt
+     * Display indications
+     * @param result from compareSolutionAndAnswer
      */
     protected abstract void displayIndications(String result);
 
     /**
+     * Return if game is won for both game
      * @param result from compareSolutionAndAttempt
      * @return true if game is won whoever the winner
      */
     protected abstract boolean isGameWon(String result);
 
     /**
-     * Analyze results and end the game if win condition is true
-     *
-     * @param chosenMode    user input for mode
+     * Analyze results and set over the game if win condition is true
+     * @param chosenMode user input for mode
      * @param currentPlayer AI or human
      * @return boolean gameOver = true if game is ended
      */
@@ -422,7 +437,6 @@ public abstract class Game {
 
     /**
      * Display the win or lose sentence according to results
-     *
      * @param chosenMode user input for mode
      * @param playerWin  Exception display message when user input error
      */
@@ -462,8 +476,7 @@ public abstract class Game {
     }
 
     /**
-     * Define the throwing conditions for PlayerInputError exception when player have to choose new game or quit game
-     *
+     * Set the throwing conditions for PlayerInputError exception for new game choice
      * @param choice play a new game with same parameters/return mode menu/quit application
      * @throws PlayerInputError Exception display message when user input error
      */
@@ -472,8 +485,7 @@ public abstract class Game {
     }
 
     /**
-     * Dispaly new game menu and record input player to choose new game or quit game option
-     *
+     * Display new game menu and record input player to choose new game or quit game option
      * @return true if player quit game / false if player play another game
      */
     private boolean displayNewGameOrMainMenuAndRecordInputPlayerFor() {

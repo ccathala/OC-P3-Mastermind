@@ -11,14 +11,21 @@ public class SearchNumber extends Game {
 
     private int[][] rangeAiAnswer;
 
+    /**
+     * Display game heading
+     */
     @Override
     public void displayGameHeading() {
         System.out.println("----------[Recherche +/-]----------");
     }
 
+    /**
+     * Init new game parameter
+     */
     @Override
     public void initGame(){
-        super.initGame();
+        super.initGame(); /*Init common parameters for both game*/
+        //Init research number specific parameters
         rangeAiAnswer = new int[2][combinationDigitNumber];
         for (int i = 0; i < combinationDigitNumber; i++) { /* init range for defender sequence */
             rangeAiAnswer[0][i] = 0;
@@ -35,6 +42,10 @@ public class SearchNumber extends Game {
         logger.info("--------------------Fin resume init----------------------");
     }
 
+    /**
+     * Display instructions at game begins
+     * @param gameMode challenger, defender, duel
+     */
     @Override
     protected void displayInstruction(String gameMode){
         switch (gameMode) {
@@ -51,6 +62,11 @@ public class SearchNumber extends Game {
         System.out.println(" combinaison cachée à " + combinationDigitNumber + " chiffres.");
     }
 
+    /**
+     * Generate and display AI answer
+     * @param result value from compareSolutionAndAttempt method for previous attempt
+     * @return AI answer combination
+     */
     @Override
     public int[] generateAndDisplayAiAnswer(String result) {
         StringBuilder displayAnswer = new StringBuilder();
@@ -89,8 +105,14 @@ public class SearchNumber extends Game {
         }
     }
 
+    /**
+     * Compare solution and answer for both mode
+     * @param solution current solution formatted in int[combinationDigitNumber]
+     * @param answer generated answer formatted in int[combinationDigitNumber]
+     * @return comparison result format : "++=-"
+     */
     @Override
-    public String compareSolutionAndAttempt(int[] solution,int[] answer) {
+    public String compareSolutionAndAnswer(int[] solution,int[] answer) {
         String[] comparatorTable = new String[combinationDigitNumber];
         StringBuilder comparator = new StringBuilder();
         for (int i = 0; i < combinationDigitNumber; i++) {
@@ -106,6 +128,10 @@ public class SearchNumber extends Game {
         return comparator.toString();
     }
 
+    /**
+     * Display indications after player or AI proposition
+     * @param result from compareSolutionAndAnswer
+     */
     @Override
     public void displayIndications(String result){
         if (currentPlayer.ordinal() == 1) {
@@ -116,29 +142,9 @@ public class SearchNumber extends Game {
         logger.info("Résultat : " + result);
     }
 
-    @Override
-    public boolean isGameWon(String result) {
-        StringBuilder winCondition = new StringBuilder();
-        for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
-            winCondition.append("=");
-        }
-        return result.equals(winCondition.toString());
-    }
-
-    @Override
-    protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
-        if (playerInput.length != combinationDigitNumber){
-            throw new PlayerInputError();
-        }
-    }
-
-    @Override
-    protected void errorSentence(){
-        System.out.println("Erreur de saisie - Veuillez saisir une combinaison composée de " + combinationDigitNumber + " chiffres.");
-    }
-
-
-
+    /**
+     * Import parameters from config.properties
+     */
     @Override
     public void importParameterFromConfigProperties() {
         Properties properties = new Properties();
@@ -152,6 +158,44 @@ public class SearchNumber extends Game {
         devModeFromConfig = Integer.parseInt(properties.getProperty("devMode"));
     }
 
+    /**
+     * Return if game is won
+     * @param result from compareSolutionAndAttempt format:"++=-"
+     * @return true if game is won
+     */
+    @Override
+    public boolean isGameWon(String result) {
+        StringBuilder winCondition = new StringBuilder();
+        for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
+            winCondition.append("=");
+        }
+        return result.equals(winCondition.toString());
+    }
+
+    /**
+     * Set throwing conditions for PlayerInputError exception for player combination input
+     * @param playerInput Player input splitted in String[]
+     * @throws PlayerInputError Exception display message when user input error
+     */
+    @Override
+    protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
+        if (playerInput.length != combinationDigitNumber){
+            throw new PlayerInputError();
+        }
+    }
+
+    /**
+     * Display error sentence if incorrect player input
+     */
+    @Override
+    protected void errorSentence(){
+        System.out.println("Erreur de saisie - Veuillez saisir une combinaison composée de " + combinationDigitNumber + " chiffres.");
+    }
+
+    /**
+     * Generate random number from 0 to 9
+     * @return random int
+     */
     @Override
     protected int randomNumber() {
         Random random = new Random();
