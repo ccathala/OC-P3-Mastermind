@@ -29,10 +29,5 @@ public class Main {
         logger.info("-----------------LANCEMENT APPLICATION-------------------");
         Menu menu = new Menu();
         menu.GameChoice(argument);
-
-
-
-        /*String curDir = System.getProperty("user.dir");
-        System.out.println ("Le répertoire courant est: "+curDir);*/
     }
 }

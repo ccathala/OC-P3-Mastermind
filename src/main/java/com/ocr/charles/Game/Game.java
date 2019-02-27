@@ -184,7 +184,7 @@ public abstract class Game {
     /**
      * Import parameters from file config.properties
      */
-    protected abstract void importParameterFromConfigProperties();
+    public abstract void importParameterFromConfigProperties();
 
     /**
      * @param chosenMode    user input

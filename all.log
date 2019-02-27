@@ -8238,4 +8238,977 @@
 2019-02-27 15:00:54.930 [main] INFO  com.ocr.charles.Menu - Solution : [4, 1, 5, 6]
 2019-02-27 15:00:54.930 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 1, 5, 4]
 2019-02-27 15:00:54.930 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 3
-2019-02-27 15:00:54.930 [
+2019-02-27 15:00:54.930 [2019-02-27 15:22:16.030 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:22:16.035 [main] INFO  com.ocr.charles.Menu - -----------------LANCEMENT APPLICATION-------------------
+2019-02-27 15:23:26.193 [main] INFO  com.ocr.charles.Menu - Jeu choisi  : MastermindLevel
+2019-02-27 15:23:27.897 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:23:27.897 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:23:27.897 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:23:27.897 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:23:27.898 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:23:27.898 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:23:27.898 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:23:27.898 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:23:27.898 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:23:27.898 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:23:30.257 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - Solution : [9, 9, 9, 9]
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 3, 1, 3]
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:23:30.258 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:23:30.259 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:23:30.259 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:23:37.560 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:23:37.560 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:23:37.560 [main] INFO  com.ocr.charles.Menu - Solution : [9, 9, 9, 9]
+2019-02-27 15:23:37.560 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 2, 4, 6]
+2019-02-27 15:23:37.560 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:23:37.561 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:23:37.561 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:23:37.561 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:23:37.561 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:23:37.570 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Solution : [9, 9, 9, 9]
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Réponse : [7, 7, 7, 8]
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Solution : [9, 9, 9, 9]
+2019-02-27 15:23:37.571 [main] INFO  com.ocr.charles.Menu - Réponse : [9, 9, 9, 9]
+2019-02-27 15:23:37.572 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:23:37.572 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:23:37.572 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:23:37.572 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:23:37.572 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:24:09.369 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:24:09.370 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:24:09.370 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:24:13.937 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:24:13.938 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:13.938 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:24:13.938 [main] INFO  com.ocr.charles.Menu - Solution : [8, 8, 8, 8]
+2019-02-27 15:24:13.938 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 7, 9, 0]
+2019-02-27 15:24:13.938 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:24:13.938 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:13.939 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:13.939 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:13.939 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Solution : [8, 8, 8, 8]
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 2, 2]
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:15.209 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:24:15.242 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:15.242 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - Solution : [8, 8, 8, 8]
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - Réponse : [3, 3, 4, 6]
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:15.243 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Solution : [8, 8, 8, 8]
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Réponse : [8, 8, 8, 8]
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:15.244 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:24:16.545 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:24:16.546 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:24:16.546 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:24:16.546 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:24:17.841 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:24:17.841 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:17.841 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:24:17.841 [main] INFO  com.ocr.charles.Menu - Solution : [7, 7, 7, 7]
+2019-02-27 15:24:17.841 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 4, 0, 0]
+2019-02-27 15:24:17.842 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:24:17.842 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:17.842 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:17.842 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:17.842 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Solution : [7, 7, 7, 7]
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 2, 3, 5]
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:58.618 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Solution : [7, 7, 7, 7]
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 6, 7, 8]
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:58.670 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Solution : [7, 7, 7, 7]
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 9, 9, 9]
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Solution : [7, 7, 7, 7]
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Réponse : [7, 7, 7, 7]
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:24:58.671 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:25:03.649 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:03.649 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:25:03.649 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:25:03.649 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:25:03.649 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:25:03.650 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:25:05.713 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:25:05.713 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:05.713 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:25:05.713 [main] INFO  com.ocr.charles.Menu - Solution : [6, 6, 6, 6]
+2019-02-27 15:25:05.714 [main] INFO  com.ocr.charles.Menu - Réponse : [9, 7, 9, 0]
+2019-02-27 15:25:05.714 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:05.714 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:05.714 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:05.714 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:05.720 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - Solution : [6, 6, 6, 6]
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 2, 3, 4]
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:13.891 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:13.892 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Solution : [6, 6, 6, 6]
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 5, 6]
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:25:13.904 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Solution : [6, 6, 6, 6]
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 8, 8, 8]
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Solution : [6, 6, 6, 6]
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 6, 6, 6]
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:13.905 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:25:27.193 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:25:30.281 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:25:30.281 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:30.281 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:25:30.281 [main] INFO  com.ocr.charles.Menu - Solution : [5, 5, 5, 5]
+2019-02-27 15:25:30.281 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 2, 3, 7]
+2019-02-27 15:25:30.282 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:30.282 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:30.282 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:30.283 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:30.283 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:25:31.578 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:31.578 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:25:31.578 [main] INFO  com.ocr.charles.Menu - Solution : [5, 5, 5, 5]
+2019-02-27 15:25:31.579 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 4, 4]
+2019-02-27 15:25:31.579 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:31.579 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:31.579 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:31.579 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:31.579 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Solution : [5, 5, 5, 5]
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 6, 8]
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:31.618 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - Solution : [5, 5, 5, 5]
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 9, 9]
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:31.619 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Solution : [5, 5, 5, 5]
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 6, 6, 9]
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Solution : [5, 5, 5, 5]
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 5, 5]
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:31.620 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:25:44.321 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:44.321 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:25:44.321 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:25:44.321 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:25:44.321 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:25:44.322 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Solution : [4, 4, 4, 4]
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 2, 6, 5]
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:50.489 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Solution : [4, 4, 4, 4]
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 0, 3, 3]
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:51.734 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Solution : [4, 4, 4, 4]
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 4, 7, 8]
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:51.766 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Solution : [4, 4, 4, 4]
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 4, 9, 9]
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:25:51.767 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Solution : [4, 4, 4, 4]
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 7, 7, 9]
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Solution : [4, 4, 4, 4]
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 4, 4, 4]
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:51.768 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:25:53.729 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:53.729 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:25:53.729 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:25:53.729 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:25:53.729 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:25:53.729 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:25:53.730 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:25:53.730 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:25:53.730 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:25:53.730 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:25:53.730 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:25:53.730 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 1, 1, 3]
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:54.913 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:54.914 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 1, 2, 0]
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:57.805 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Réponse : [3, 4, 5, 3]
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:57.893 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Réponse : [3, 7, 8, 3]
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Réponse : [9, 4, 8, 3]
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:57.895 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 7, 5, 3]
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Tour Ai n°7 :
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Solution : [3, 3, 3, 3]
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Réponse : [3, 3, 3, 3]
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:25:57.896 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 13
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:26:00.089 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Solution : [2, 2, 2, 2]
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 8, 0, 5]
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:01.545 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - Solution : [2, 2, 2, 2]
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - Réponse : [2, 2, 3, 3]
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:02.789 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:02.790 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Solution : [2, 2, 2, 2]
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Réponse : [2, 2, 4, 6]
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Solution : [2, 2, 2, 2]
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Réponse : [2, 7, 3, 6]
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:02.796 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - Solution : [2, 2, 2, 2]
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - Réponse : [2, 2, 2, 2]
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:02.797 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:26:04.329 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:26:05.305 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:26:05.305 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:05.305 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:26:05.305 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:05.305 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 1, 2, 7]
+2019-02-27 15:26:05.306 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:26:05.306 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:05.306 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:05.306 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:05.306 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 3, 3, 4]
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:06.751 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 1, 6, 6]
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:06.817 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 2, 8]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 1, 9]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 3
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 9, 9]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tour Ai n°7 :
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Solution : [1, 1, 1, 1]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 1, 1]
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:06.820 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 13
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:26:29.265 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Solution : [0, 0, 0, 0]
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 2, 5, 5]
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:30.913 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:26:39.117 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:39.117 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:26:39.117 [main] INFO  com.ocr.charles.Menu - Solution : [0, 0, 0, 0]
+2019-02-27 15:26:39.118 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 1, 3, 4]
+2019-02-27 15:26:39.118 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:26:39.118 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:39.118 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:39.118 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:39.118 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:26:39.156 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:39.156 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:26:39.156 [main] INFO  com.ocr.charles.Menu - Solution : [0, 0, 0, 0]
+2019-02-27 15:26:39.156 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 7, 8, 9]
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Solution : [0, 0, 0, 0]
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 1, 9]
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:39.157 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Solution : [0, 0, 0, 0]
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 7, 7, 4]
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Solution : [0, 0, 0, 0]
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 0, 0, 0]
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:26:39.158 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:27:08.137 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:08.137 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:27:08.137 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:27:08.137 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:27:08.138 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Solution : [9, 5, 8, 4]
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 7, 3, 2]
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:10.562 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:27:11.790 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:11.790 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - Solution : [9, 5, 8, 4]
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 4, 4]
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:11.791 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:27:11.819 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Solution : [9, 5, 8, 4]
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 5, 6, 6]
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Solution : [9, 5, 8, 4]
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 4, 8]
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:11.820 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Solution : [9, 5, 8, 4]
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Réponse : [8, 5, 9, 4]
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Solution : [9, 5, 8, 4]
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Réponse : [9, 5, 8, 4]
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:11.821 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:27:13.617 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Solution : [5, 1, 4, 6]
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 4, 5, 2]
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 1
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:15.841 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Solution : [5, 1, 4, 6]
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 1, 5, 5]
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 1
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:16.511 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Solution : [5, 1, 4, 6]
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 3, 5, 1]
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 3
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:16.523 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Solution : [5, 1, 4, 6]
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 4, 4, 5]
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Solution : [5, 1, 4, 6]
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 1, 4, 6]
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:16.524 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:27:18.745 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:27:21.401 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:27:21.401 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:21.401 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:27:21.401 [main] INFO  com.ocr.charles.Menu - Solution : [6, 5, 1, 8]
+2019-02-27 15:27:21.406 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 1, 5, 5]
+2019-02-27 15:27:21.406 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:27:21.406 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:21.406 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:21.406 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:21.406 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Solution : [6, 5, 1, 8]
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 5, 1, 2]
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:21.485 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Solution : [6, 5, 1, 8]
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Réponse : [3, 5, 1, 4]
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Solution : [6, 5, 1, 8]
+2019-02-27 15:27:21.486 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 5, 1, 7]
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 3
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Solution : [6, 5, 1, 8]
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 5, 1, 8]
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:21.487 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:27:24.129 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Solution : [4, 8, 5, 7]
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Réponse : [1, 7, 3, 5]
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:26.577 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Solution : [4, 8, 5, 7]
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 1, 2, 3]
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:30.594 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Solution : [4, 8, 5, 7]
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 4, 7, 7]
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:30.609 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Solution : [4, 8, 5, 7]
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 5, 7, 4]
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 2
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Solution : [4, 8, 5, 7]
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 6, 5, 7]
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 3
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Solution : [4, 8, 5, 7]
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 8, 5, 7]
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:27:30.610 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:28:01.393 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - Solution : [4, 7, 8, 9]
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 2, 3, 4]
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:28:05.881 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 1
+2019-02-27 15:28:05.882 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:05.882 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:05.882 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Solution : [4, 7, 8, 9]
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 0, 1, 2]
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:22.886 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 18
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Tour Ai n°3 :
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Solution : [4, 7, 8, 9]
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Réponse : [6, 3, 6, 7]
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 0
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 1
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:23.198 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 17
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Tour Ai n°4 :
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Solution : [4, 7, 8, 9]
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 8, 8, 6]
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 16
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Tour Ai n°5 :
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Solution : [4, 7, 8, 9]
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Réponse : [3, 8, 8, 9]
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 2
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 15
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Tour Ai n°6 :
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Solution : [4, 7, 8, 9]
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Réponse : [4, 7, 8, 9]
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 4
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - La partie est terminée : true
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:23.210 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 14
+2019-02-27 15:28:27.048 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:27.048 [main] INFO  com.ocr.charles.Menu - Joueur rejoue une partie.
+2019-02-27 15:28:27.048 [main] INFO  com.ocr.charles.Menu - --------------------Nouvelle partie----------------------
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - -----------------------Resume init-----------------------
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Développeur mode : true
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Nombre de digits : 4
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées : 20
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Tentatives autorisées -1 : 19
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Partie terminée : false
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Joueur gagne : false
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - Base : 10
+2019-02-27 15:28:27.049 [main] INFO  com.ocr.charles.Menu - --------------------Fin resume init----------------------
+2019-02-27 15:28:29.248 [main] INFO  com.ocr.charles.Menu - Mode choisi : Defender
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Tour Ai n°1 :
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Solution : [1, 5, 3, 2]
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Réponse : [5, 5, 9, 8]
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 0
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:29.249 [main] INFO  com.ocr.charles.Menu - Tentatives restantes : 19
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - ---------------------------------------------------------
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - Tour Ai n°2 :
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - Solution : [1, 5, 3, 2]
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - Réponse : [0, 5, 1, 1]
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - Chiffres bien placés : 1
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - Chiffres présents, mal placés : 1
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - La partie est terminée : false
+2019-02-27 15:28:32.248 [main] INFO  com.ocr.charles.Menu - Le joueur remporte la partie : false
+2019-02-27 15:28:32.248 [main] INFO 
