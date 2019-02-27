@@ -17,7 +17,6 @@ public class Mastermind extends Game {
     int indexSubmitedProp;
     int[] submitedProposition = new int[0];
     protected int combinationNumber; /* Number of possible combinations*/
-    protected int currentCombination;
     protected int quotient = 0;
 
     /**
@@ -34,6 +33,7 @@ public class Mastermind extends Game {
     @Override
     public void initGame() {
         super.initGame();
+
         logger.info("Base : " + mastermindAllowedNumber);
         logger.info("--------------------Fin resume init----------------------");
     }
@@ -81,12 +81,8 @@ public class Mastermind extends Game {
     public int[] generateAndDisplayAiAnswer(String result) {
         StringBuilder displayAnswer = new StringBuilder();
         if (attemptNumber == 1) {
-            currentCombination = 1;
-            //propositionsList = new LinkedList<>();
             combinationNumber = (int) Math.pow(mastermindAllowedNumber, combinationDigitNumber);
             submitedProposition = aiChooseRandomCombination();
-            //propositionsList.add(retour);
-            //retour = propositionsList.get(0);
             generateScoresList(); //knuth
         }
         //IA normal----------------------------------------------------------------------------
@@ -202,13 +198,13 @@ public class Mastermind extends Game {
     public void generatePropositionListAccordingScoreAttempt1(String result , int[]solution) {
         // Génère la liste des propositions en fonction du score arbitrage n-1
         propositionsList=new LinkedList<>();
-        for (int j = 1; j < combinationNumber; j++) {
+        for (int j = 0; j < combinationNumber; j++) {
             int[] resultTable = new int[combinationDigitNumber];
             for (int i = combinationDigitNumber - 1; i > -1; i--) {
                 int rest;
                 if (i == combinationDigitNumber - 1) {
-                    rest = currentCombination % mastermindAllowedNumber;
-                    quotient = currentCombination / mastermindAllowedNumber;
+                    rest = j % mastermindAllowedNumber;
+                    quotient = j / mastermindAllowedNumber;
                 } else {
                     rest = quotient % mastermindAllowedNumber;
                     quotient = quotient / mastermindAllowedNumber;
@@ -219,15 +215,12 @@ public class Mastermind extends Game {
             if (score.equals(result)) {
                 propositionsList.add(resultTable);
             }
-            currentCombination = currentCombination + 1;
         }
-
     }
 
     public void generatePropositionListAccordingPreviousScoreAttempt(String result, int[] solution) {
         if(attemptNumber==2){
             generatePropositionListAccordingScoreAttempt1(result, solution);
-            propositionsList.remove(0);
         }
         if (attemptNumber > 2) {
             bufferList = new LinkedList<>();
