@@ -41,7 +41,7 @@ public class Menu {
 
     /**
      * Record player input for the game choice
-     * @param args
+     * @param args dev mode information
      */
     protected void GameChoice(String args) {
         boolean quitGame = true;

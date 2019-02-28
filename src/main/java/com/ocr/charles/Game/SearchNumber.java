@@ -95,7 +95,10 @@ public class SearchNumber extends Game {
                     rangeMin.append(rangeAiAnswer[0][i]).append(" ");
                     rangeMax.append(rangeAiAnswer[1][i]).append(" ");
                     aiAnswerCombination[i] = rangeAiAnswer[1][i] - ((rangeAiAnswer[1][i] - rangeAiAnswer[0][i]) / 2);
+                }else if(result.charAt(i) == '=') {
+                    aiAnswerCombination[i]=answerReturn[1][i];
                 }
+
                 displayAnswer.append(aiAnswerCombination[i]);
             }
             logger.info("MAJ range Mini : " + rangeMin);
