@@ -27,7 +27,7 @@ public class SearchNumber extends Game {
         super.initGame(); /*Init common parameters for both game*/
         //Init research number specific parameters
         rangeAiAnswer = new int[2][combinationDigitNumber];
-        for (int i = 0; i < combinationDigitNumber; i++) { /* init range for defender sequence */
+        for (int i = 0; i < combinationDigitNumber; i++) {
             rangeAiAnswer[0][i] = 0;
             rangeAiAnswer[1][i] = 9;
         }
@@ -71,6 +71,7 @@ public class SearchNumber extends Game {
     public int[] generateAndDisplayAiAnswer(String result) {
         StringBuilder displayAnswer = new StringBuilder();
         int[] aiAnswerCombination = new int[combinationDigitNumber];
+        //Set first answer to 5 for each digit
         if (attemptNumber == 1) {
             for (int i = 0; i < combinationDigitNumber; i++) {
                 aiAnswerCombination[i] = 5;
@@ -78,11 +79,12 @@ public class SearchNumber extends Game {
             }
             System.out.println(displayAnswer);
             return aiAnswerCombination;
-        } else {
+        }
+        //Generate new answer according to previous result
+        else {
             StringBuilder rangeMin = new StringBuilder();
             StringBuilder rangeMax = new StringBuilder();
             for (int i = 0; i < combinationDigitNumber; i++) {
-
                 if (result.charAt(i) == '+') {
                     rangeAiAnswer[0][i] = answerReturn[1][i] + 1;
                     rangeMin.append(rangeAiAnswer[0][i]).append(" ");
@@ -115,6 +117,7 @@ public class SearchNumber extends Game {
     public String compareSolutionAndAnswer(int[] solution,int[] answer) {
         String[] comparatorTable = new String[combinationDigitNumber];
         StringBuilder comparator = new StringBuilder();
+        //Compare index[i] solution with index[i] answer, record comparator value
         for (int i = 0; i < combinationDigitNumber; i++) {
             if (answer[i] == solution[i]) {
                 comparatorTable[i] = "=";
@@ -134,10 +137,12 @@ public class SearchNumber extends Game {
      */
     @Override
     public void displayIndications(String result){
+        //Indications template
         if (currentPlayer.ordinal() == 1) {
             System.out.print("    ");
         }
         System.out.print("      ->Réponse : ");
+        //Display indication
         System.out.println(result);
         logger.info("Résultat : " + result);
     }
@@ -147,12 +152,14 @@ public class SearchNumber extends Game {
      */
     @Override
     public void importParameterFromConfigProperties() {
+        //Target config.properties file
         Properties properties = new Properties();
         try {
             properties.load(Objects.requireNonNull(Game.class.getClassLoader().getResourceAsStream("config.properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //Record parameters
         combinationDigitNumber = Integer.parseInt(properties.getProperty("researchNumberCombinationDigitNumber"));
         attemptSetting = Integer.parseInt(properties.getProperty("researchNumberAllowedAttempts"));
         devModeFromConfig = Integer.parseInt(properties.getProperty("devMode"));
@@ -166,7 +173,7 @@ public class SearchNumber extends Game {
     @Override
     public boolean isGameWon(String result) {
         StringBuilder winCondition = new StringBuilder();
-        for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition string*/
+        for (int i = 0; i < combinationDigitNumber; i++) { /* Generate win condition format:"===..." according to combination digit number*/
             winCondition.append("=");
         }
         return result.equals(winCondition.toString());

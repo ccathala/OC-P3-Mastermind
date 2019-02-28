@@ -65,9 +65,11 @@ public class Mastermind extends Game {
      */
     @Override
     protected void playerCorrectCombinationInput(String[] playerInput) throws PlayerInputError {
+        //Throw exception if incorrect length input
         if (playerInput.length != combinationDigitNumber) {
             throw new PlayerInputError();
         }
+        //Throw exception if digit out of base set
         for (int i = 0; i < combinationDigitNumber; i++) {
             if (Integer.parseInt(playerInput[i]) > (mastermindAllowedNumber - 1)) {
                 throw new PlayerInputError();
@@ -92,17 +94,20 @@ public class Mastermind extends Game {
     @Override
     public int[] generateAndDisplayAiAnswer(String result) {
         StringBuilder displayAnswer = new StringBuilder();
+        //First turn
         if (attemptNumber == 1) {
-            combinationNumber = (int) Math.pow(mastermindAllowedNumber, combinationDigitNumber);
-            submitedProposition = aiChooseRandomCombination();
-            generateScoresList(); //knuth
+            combinationNumber = (int) Math.pow(mastermindAllowedNumber, combinationDigitNumber); /*Set amount of propositions*/
+            submitedProposition = aiChooseRandomCombination(); /*Choose random combination for turn 1*/
+            generateScoresList();
         }
         if (attemptNumber >= 2) {
             generatePropositionListAccordingPreviousScoreAttempt(result,submitedProposition);
             generateScoreTable();
-            indexSubmitedProp = choseMinWeightProposition(scoreCalculation());
+            indexSubmitedProp = choseMinWeightProposition(scoreCalculation()); /*Record score for each proposition,
+             calculate minimal weight proposition and record index of the first minimal weight proposition*/
             submitedProposition= propositionsList.get(indexSubmitedProp);
         }
+        //Display answer
         for (int i = 0; i < combinationDigitNumber; i++) {
             displayAnswer.append(submitedProposition[i]);
         }
@@ -120,7 +125,7 @@ public class Mastermind extends Game {
         scoreList = new LinkedList<>();
         for (int i = 0; i <= combinationDigitNumber; i++) {
             Integer dizaine = 10 * i;
-            if (i <= combinationDigitNumber - 2) {
+            if (i <= combinationDigitNumber - 2) { /* -2 cause two last score are always: (mastermindAllowedNumber-1)*10/mastermindAllowedNumber*10*/
                 for (int j = 0; j <= combinationDigitNumber; j++) {
                     if (j < i) {
                         j = i;
@@ -140,7 +145,7 @@ public class Mastermind extends Game {
      * Row number = proposition list size
      */
     private void generateScoreTable(){
-        scoreTable = new int[propositionsList.size()][(scoreList.size() + 1)];
+        scoreTable = new int[propositionsList.size()][(scoreList.size() + 1)];/* +1 column to record weight value*/
     }
 
     /**
@@ -149,35 +154,33 @@ public class Mastermind extends Game {
      * @return minimal weight
      */
     private int scoreCalculation() {
-        int[] solution = new int[combinationDigitNumber];
-        int[] answer = new int[combinationDigitNumber];
-        int score = 0;
+        int[] solution;
+        int[] answer;
+        int score;
         int minWeight = 0;
-        // choix de la proposition de référence
         for (int i = 0; i < propositionsList.size(); i++) {
-            solution = propositionsList.get(i);
-            // choix de la proposition candidate
+            solution = propositionsList.get(i);/*Choose reference proposition*/
             for (int j = 0; j < propositionsList.size(); j++) {
-                answer = propositionsList.get(j);
-                // Calcul du score
+                answer = propositionsList.get(j);/*Choose candidate proposition*/
+                // Score calculation
                 score = Integer.parseInt(compareSolutionAndAnswer(solution, answer));
-                // Ajout du score dans le tableau de score
+                //Record score in score table
                 int k = 0;
                 while (score != scoreList.get(k)) {
                     k++;
                 }
                 scoreTable[i][k]++;
             }
-            // Recherche du poids Max de la proposition de référence
+            // Search maximal weight of reference proposition
             int weight = 0;
-            for (int j = 0; j <= scoreList.size(); j++) {
+            for (int j = 0; j < scoreList.size(); j++) {
                 if (weight < scoreTable[i][j]) {
                     weight = scoreTable[i][j];
                 }
             }
-            // Ajout du poids max dans le tableau de score
+            // Record reference proposition maximal weigth in score table
             scoreTable[i][scoreList.size()] = weight;
-            // Recherche du poids min parmi toutes les propositions candidates
+            // Search weight minimal value in score table
             if (minWeight == 0) {
                 minWeight = scoreTable[i][scoreList.size()];
             } else if (minWeight > scoreTable[i][scoreList.size()]) {
@@ -189,7 +192,7 @@ public class Mastermind extends Game {
 
     /**
      * Search in score table proposition with minimal weight value
-     * @param minWeight
+     * @param minWeight minimal weight proposition
      * @return return index of a minimal weight proposition
      */
     private int choseMinWeightProposition(int minWeight) {
@@ -197,7 +200,7 @@ public class Mastermind extends Game {
         while (minWeight != scoreTable[i][scoreList.size()]) {
             i++;
         }
-        return i;
+        return i;/*i=index of next answer*/
     }
 
     /**
@@ -206,8 +209,9 @@ public class Mastermind extends Game {
      * @param Attempt1Answer attempt 1 submitted solution
      */
     private void generatePropositionListAccordingScoreAttempt1(String result , int[]Attempt1Answer) {
-        // Génère la liste des propositions en fonction du score arbitrage n-1
+        // Generate proposition list according to score turn 1
         propositionsList=new LinkedList<>();
+        //Convert value j in base value
         for (int j = 0; j < combinationNumber; j++) {
             int[] resultTable = new int[combinationDigitNumber];
             for (int i = combinationDigitNumber - 1; i > -1; i--) {
@@ -221,6 +225,7 @@ public class Mastermind extends Game {
                 }
                 resultTable[i] = rest;
             }
+            //Compare converted value of j with anwser turn 1, if score=result add j as proposition in list
             String score = compareSolutionAndAnswer(Attempt1Answer, resultTable);
             if (score.equals(result)) {
                 propositionsList.add(resultTable);
@@ -240,11 +245,12 @@ public class Mastermind extends Game {
         if (attemptNumber > 2) {
             LinkedList<int[]> bufferList = new LinkedList<>();
             for (int i = 0; i < propositionsList.size(); i++) {
+                //Compare each proposition in list with answer(turn-1)if score=result add proposition in new list
                 compareSolutionAndAnswer(propositionsList.get(indexSubmitedProp), propositionsList.get(i));
                 if (result.equals(compareSolutionAndAnswer(propositionsList.get(indexSubmitedProp), propositionsList.get(i)))){
                     bufferList.add(propositionsList.get(i));
                 }
-            }propositionsList = bufferList;
+            }propositionsList = bufferList;/*update proposition list*/
         }
     }
 
@@ -257,15 +263,16 @@ public class Mastermind extends Game {
      */
     @Override
     public String compareSolutionAndAnswer(int[] solution, int[] answer) {
-        int numberWellplaced = 0;
-        int numberInCombination;
+        int wellPlacedNumber = 0;
+        int notWellPlacedNumber;
         int min = 0;
-
+        //Calculate well placed number value
         for (int i = 0; i < combinationDigitNumber; i++) {
             if (solution[i] == answer[i]) {
-                numberWellplaced = numberWellplaced + 1;
+                wellPlacedNumber = wellPlacedNumber + 1;
             }
         }
+        //Calculate not well placed number value
         for (int i = 0; i < mastermindAllowedNumber; i++) {
             LinkedList<Integer> occurencies = new LinkedList<>();
             occurencies.add(0, 0);
@@ -280,8 +287,8 @@ public class Mastermind extends Game {
             }
             min = min + Collections.min(occurencies);
         }
-        numberInCombination = min - numberWellplaced;
-        return String.valueOf((numberWellplaced * 10) + numberInCombination);
+        notWellPlacedNumber = min - wellPlacedNumber;
+        return String.valueOf((wellPlacedNumber * 10) + notWellPlacedNumber);
     }
 
     /**
@@ -313,7 +320,7 @@ public class Mastermind extends Game {
      */
     @Override
     public boolean isGameWon(String result) {
-        return Integer.parseInt(result) == combinationDigitNumber * 10;
+        return Integer.parseInt(result) == combinationDigitNumber * 10; /*Set win condition*/
     }
 
     /**
@@ -321,12 +328,14 @@ public class Mastermind extends Game {
      */
     @Override
     public void importParameterFromConfigProperties() {
+        //Target config.properties file
         Properties properties = new Properties();
         try {
             properties.load(Objects.requireNonNull(Game.class.getClassLoader().getResourceAsStream("config.properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //Record parameters
         combinationDigitNumber = Integer.parseInt(properties.getProperty("mastermindCombinationDigitNumber"));
         attemptSetting = Integer.parseInt(properties.getProperty("mastermindAllowedAttempts"));
         mastermindAllowedNumber = Integer.parseInt(properties.getProperty("mastermindAllowedNumber"));

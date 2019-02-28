@@ -9,6 +9,7 @@ public class Main {
 
         final Logger logger = LogManager.getLogger(Menu.class);
 
+        // Set command line argument
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         String argument="";
@@ -25,6 +26,7 @@ public class Main {
             formatter.printHelp("utility-name", options);
             System.exit(1);
         }
+        //Launch main menu
         logger.info("---------------------------------------------------------");
         logger.info("-----------------LANCEMENT APPLICATION-------------------");
         Menu menu = new Menu();

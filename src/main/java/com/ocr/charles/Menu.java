@@ -46,6 +46,7 @@ public class Menu {
             Scanner sc = new Scanner(System.in);
             do {
                 displayGameMenu();
+                //Record player input
                 try {
                     game = sc.nextInt();
                     playerChooseCorrectGameOption(game);
@@ -63,6 +64,7 @@ public class Menu {
                     correctInput = false;
                 }
             } while (!correctInput);
+            //Launch chosen game
             Game current = null;
             if (game == 1) {
                 logger.info("Jeu choisi : SearchNumber");
