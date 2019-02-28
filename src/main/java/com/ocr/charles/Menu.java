@@ -80,8 +80,13 @@ public class Menu {
                 logger.info("---------------------------------------------------------");
                 quitGame = false;
             }
-            current.importParameterFromConfigProperties();
-            current.newGame(args);
+            try{
+                current.importParameterFromConfigProperties();
+                current.newGame(args);
+            }catch (NullPointerException e){
+                System.out.print("");
+            }
+
         }
     }
 
