@@ -215,6 +215,7 @@ public abstract class Game {
             displayInstruction("challenger");
             System.out.println();
             System.out.println("Le décodeur dispose de " + attemptSetting + " tentatives pour trouver la combinaison cachée.");
+            System.out.println();
             solutionReturn[1] = aiChooseRandomCombination();/*Record hidden combination*/
             displayDevmode(solutionReturn[1]);
             logger.info("Mode choisi : Challenger");
@@ -258,9 +259,9 @@ public abstract class Game {
             for (int i = 0; i < combinationDigitNumber; i++) {
                 displayCombination.append(hiddenCombination[i]);
             }
-            System.out.print("Combinaison secrète : " + displayCombination);
+            System.out.println("Combinaison secrète de l'ordinateur : " + displayCombination);
         }
-        System.out.println();
+        //System.out.println();
     }
 
     /**
@@ -288,6 +289,7 @@ public abstract class Game {
             solutionReturn[0] = recordPlayerCombinationInput();/*Record hidden combination*/
             System.out.println();
             System.out.println("Le décodeur dispose de " + attemptSetting + " tentatives pour trouver la combinaison cachée.");
+            System.out.println();
             logger.info("Mode choisi : Defender");
         }
         // Display turn template, record AI answer
@@ -362,6 +364,7 @@ public abstract class Game {
         System.out.println("Joueur, choisi une combinaison cachée à " + combinationDigitNumber + " chiffres.");
         solutionReturn[0] = recordPlayerCombinationInput();/*Record player hidden combination*/
         solutionReturn[1] = aiChooseRandomCombination();/*Record AI hidden combination*/
+        displayDevmode(solutionReturn[1]);
         currentPlayer = Player.valueOf(toss()); /* Choose randomly who begins Player or AI, display who begins*/
         return true;
     }
@@ -456,6 +459,7 @@ public abstract class Game {
      */
     private void displayResults(int chosenMode, boolean playerWin) {
         StringBuilder answer = new StringBuilder();
+        System.out.println();
         if (playerWin) {
             System.out.print("Bravo ");
             if (chosenMode == 1) {
