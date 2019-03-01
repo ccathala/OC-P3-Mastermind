@@ -98,15 +98,12 @@ public class SearchNumber extends Game {
                 }else if(result.charAt(i) == '=') {
                     aiAnswerCombination[i]=answerReturn[1][i];
                 }
-
                 displayAnswer.append(aiAnswerCombination[i]);
             }
             logger.info("MAJ range Mini : " + rangeMin);
             logger.info("MAJ range Maxi : " + rangeMax);
             System.out.println(displayAnswer);
             return aiAnswerCombination;
-
-
         }
     }
 
