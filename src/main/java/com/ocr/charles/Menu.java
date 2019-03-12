@@ -24,7 +24,8 @@ public class Menu {
         System.out.println("|    RECHERCHE +/- & MASTERMIND   |");
         System.out.println("***********************************");
         System.out.println();
-        System.out.println("Bienvenue joueur, choisi ton jeu");
+        System.out.println("Bienvenue joueur, choisi ton jeu :");
+        System.out.println();
         System.out.println("1 - Recherche +/-");
         System.out.println("2 - Mastermind");
         System.out.println("3 - Quitter l'application");

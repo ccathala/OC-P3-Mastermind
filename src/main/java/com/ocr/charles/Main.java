@@ -27,8 +27,12 @@ public class Main {
             System.exit(1);
         }
         //Launch main menu
+        logger.info("");
+        logger.info("---------------------------------------------------------");
         logger.info("---------------------------------------------------------");
         logger.info("-----------------LANCEMENT APPLICATION-------------------");
+        logger.info("---------------------------------------------------------");
+        logger.info("---------------------------------------------------------");
         Menu menu = new Menu();
         menu.GameChoice(argument);
     }

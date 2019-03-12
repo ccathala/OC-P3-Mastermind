@@ -39,7 +39,7 @@ public class SearchNumber extends Game {
         }
         logger.info("Range min: " + rangeMin);
         logger.info("Range max: " + rangeMax);
-        logger.info("--------------------Fin resume init----------------------");
+        logger.info("---------------------------------------------------------");
     }
 
     /**

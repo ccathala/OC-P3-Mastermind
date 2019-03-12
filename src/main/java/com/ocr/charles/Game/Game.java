@@ -117,11 +117,8 @@ public abstract class Game {
         if (devModeFromConfig == 1) {
             devMode = true;
         }
-        if (devMode) {
-            System.out.println("Mode développeur activé.");
-            System.out.println();
-        }
-        logger.info("-----------------------Resume init-----------------------");
+
+        logger.info("------------------------- Init --------------------------");
         logger.info("Développeur mode : " + devMode);
         logger.info("Nombre de digits : " + combinationDigitNumber);
         logger.info("Tentatives autorisées : " + attemptSetting);
@@ -151,7 +148,8 @@ public abstract class Game {
         do {
             displayGameHeading(); /*Display game heading for both game*/
             System.out.println();
-            System.out.println("Choisi ton mode de jeu");
+            System.out.println("Choisi ton mode de jeu : ");
+            System.out.println();
             System.out.println("1 - Mode Challenger");
             System.out.println("2 - Mode Defender");
             System.out.println("3 - Mode Duel");
@@ -259,9 +257,8 @@ public abstract class Game {
             for (int i = 0; i < combinationDigitNumber; i++) {
                 displayCombination.append(hiddenCombination[i]);
             }
-            System.out.println("Combinaison secrète de l'ordinateur : " + displayCombination);
+            System.out.println("Dev mode - Combinaison cachée de l'ordinateur : " + displayCombination);
         }
-        //System.out.println();
     }
 
     /**
@@ -541,7 +538,10 @@ public abstract class Game {
             logger.info("---------------------------------------------------------");
             logger.info("Retour menu choix du mode.");
         } else if (endGameChoice == 3) {
+            logger.info("---------------------------------------------------------");
+            logger.info("---------------------------------------------------------");
             logger.info("--------------FERMETURE DE L'APPLICATION-----------------");
+            logger.info("---------------------------------------------------------");
             logger.info("---------------------------------------------------------");
             System.exit(1);
         }

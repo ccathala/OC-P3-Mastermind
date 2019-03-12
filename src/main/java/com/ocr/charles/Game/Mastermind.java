@@ -34,7 +34,7 @@ public class Mastermind extends Game {
         super.initGame();
 
         logger.info("Base : " + mastermindAllowedNumber);
-        logger.info("--------------------Fin resume init----------------------");
+        logger.info("---------------------------------------------------------");
     }
 
     /**
@@ -97,8 +97,9 @@ public class Mastermind extends Game {
         //First turn
         if (attemptNumber == 1) {
             combinationNumber = (int) Math.pow(mastermindAllowedNumber, combinationDigitNumber); /*Set amount of propositions*/
-            submitedProposition = aiChooseRandomCombination(); /*Choose random combination for turn 1*/
             generateScoresList();
+            submitedProposition = aiChooseRandomCombination(); /*Choose random combination for turn 1*/
+
         }
         if (attemptNumber >= 2) {
             generatePropositionListAccordingPreviousScoreAttempt(result,submitedProposition);
